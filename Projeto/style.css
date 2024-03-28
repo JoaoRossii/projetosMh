@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root{
-    --main-color: #204085;
+    --main-color: #009fb7;
     --background-color: #e5e5e5;
     --header-color: #ffffff;
-    --second-color: #fca311;
+    --second-color: #e7b624;
     --font-color: #111111;
 }
 body.dark{
-    --main-color: #fca311;
+    --main-color: #e7b624;
     --background-color: #18191a;
     --header-color: #242526;
-    --second-color: #204085;
+    --second-color: #009fb7;
     --font-color: #ffff;
     --terceira-color: #313333;
 }
@@ -24,7 +24,7 @@ body{
 .header{
     width: 100%;
     height: 85px;
-    background: var(--background-color);
+    background: var(--header-color);
     display: flex;
     justify-content: space-between;
 }
@@ -252,4 +252,49 @@ body{
     .dropdown-content:hover {
         display: block;
         transition: display 0.8s ease; /* Adicionando transição suave */
+    }
+    .oq{
+        width: 100%;
+        height: 800px;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .card {
+        width: 300px;
+        height: 300px;
+        margin: 0 50px;
+       
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: var(--header-color);
+        padding: 20px;
+        text-align: center;
+        border-radius: 30px;
+        color: var(--font-color);
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    .oq h1{
+        position: absolute;
+        top: 80%;
+        color: var(--font-color);
+    }
+    .oq2{
+        width: 100%;
+        height: 1000px;
+        background: var(--main-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .dentro{
+        width: 98%;
+        height: 90%;
+        background: var(--second-color);
     }

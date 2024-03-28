@@ -60,6 +60,33 @@
         </div>
     </div>
 </section>
+<br><br><br><br>
+<div class="oq">
+    <h1>Principais Pesquisas</h1>
+            <div class="card">
+                <h2>Card 1</h2>
+                <p>Descrição do Card 1.</p>
+            </div>
+            <div class="card">
+                <h2>Card 2</h2>
+                <p>Descrição do Card 2.</p>
+            </div>
+            <div class="card">
+                <h2>Card 3</h2>
+                <p>Descrição do Card 3.</p>
+            </div>
+            <div class="card">
+                <h2>Card 4</h2>
+                <p>Descrição do Card 4.</p>
+            </div>
+            <div class="card">
+                <h2>Card 5</h2>
+                <p>Descrição do Card 5.</p>
+            </div>
+        </div>
+        <div class="oq2">
+            <div class="dentro"></div>
+        </div>
 </body>
 </html>
 <script>
@@ -107,3 +134,10 @@ if (nightMode === 'true') {
 
     setInterval(nextSlide, 3000); // Auto slide every 3 seconds
 </script>
+<script>
+    function moveParaEsquerda(event) {
+        const scrollPosition = event.target.scrollLeft;
+        const dentroDiv = document.querySelector('.dentro');
+        dentroDiv.style.transform = `translateX(-${scrollPosition}px)`;
+    }
+</script>   
