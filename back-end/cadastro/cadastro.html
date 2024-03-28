@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Cadastro cliente -->
+    <div class="formCad cli">
+        <form action="cadastro.php" method="post">
+            Nome:<input type="text" name="nome" placeholder=""required>
+            <br>
+            Email:<input type="text" name="email" placeholder=""required>
+            <br>
+            CPF:<input type="text" name="cpf" placeholder=""required>
+            <br>
+            Endereço:<input type="text" name="address" placeholder=""required>
+            <br>
+            Bairro:<input type="text" name="bairro" placeholder=""required>
+            <br>
+            Estado:<input type="text" name="estado" placeholder=""required>
+            <br>
+            Senha:<input type="password"  id="" name="senha" placeholder=""required >
+            <br>
+            Confirma Senha:<input type="password"  id="" name="cSenha" placeholder=""required >
+            <br>
+            <input type="checkbox"  id="termo" name="termo" placeholder=""required >
+            <label for="termo">Termos de Uso</label>
+            <a href="politicaPrivacidade.html">Politica de Uso e Privacidade</a>
+            <br>
+            <button type="submit" href="login.php">Cadastrar</button>
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- Cadastro Vendedor -->
+    <div class="formCad emp">
+        <form action="cadastroVendedor.php" method="post">
+            Nome:<input type="text" name="nomeV" placeholder=""required>
+            <br>
+            Email:<input type="text" name="emailV" placeholder=""required>
+            <br>
+            CPF:<input type="text" name="cpfV" placeholder="">
+            <br>
+            CPNJ:<input type="text" name="cnpj" placeholder="">
+            <br>
+            Endereço:<input type="text" name="addressV" placeholder=""required>
+            <br>
+            Bairro:<input type="text" name="bairroV" placeholder=""required>
+            <br>
+            Estado:<input type="text" name="estadoV" placeholder=""required>
+            <br>
+            Senha:<input type="password"  id="" name="senhaV" placeholder=""required >
+            <br>
+            Confirma Senha:<input type="password"  id="" name="cSenhaV" placeholder=""required >
+            <br>
+            <input type="checkbox"  id="termo" name="termoV" placeholder=""required >
+            <label for="termo">C</label>
+            <a href="politicaPrivacidade.html">Politica de Uso e Privacidade</a>
+            <br>
+            <button type="submit" href="login.php">Cadastrar</button>
+        </form>
+    </div>
+</body> 
+</html>
