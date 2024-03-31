@@ -6,6 +6,7 @@
     --header-color: #ffffff;
     --second-color: #e7b624;
     --font-color: #111111;
+    --line-color: #eee;
 }
 body.dark{
     --main-color: #e7b624;
@@ -14,12 +15,14 @@ body.dark{
     --second-color: #009fb7;
     --font-color: #ffff;
     --terceira-color: #313333;
+    --line-color: #888;
 }
 body{
     font-family: "Poppins", sans-serif;
     background: var(--background-color);
     margin: auto;
     transition: 0.8s;
+   
 }
 .header{
     width: 100%;
@@ -27,6 +30,9 @@ body{
     background: var(--header-color);
     display: flex;
     justify-content: space-between;
+    border-bottom: 2px solid var(--line-color);
+    position: fixed;
+    z-index: 1000;
 }
 .logo{
     width: 150px;
@@ -137,7 +143,7 @@ body{
 .ipt1{
     width: 500px;
     height: 60px;
-    border: 2px solid var(--background-color);
+    border: 2px solid var(--line-color);
     background: var(--terceira-color);
     outline: none;
     border-radius: 10px;
@@ -287,14 +293,258 @@ body{
     }
     .oq2{
         width: 100%;
-        height: 1000px;
+        height: 800px;
         background: var(--main-color);
         display: flex;
         justify-content: center;
         align-items: center;
+        position: absolute;
+        top: 1800px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
     }
     .dentro{
         width: 98%;
         height: 90%;
         background: var(--second-color);
+    } 
+    .svg-container {
+        width: 100%;
+        overflow: hidden;
+    } 
+    .s2{
+        height: 800px; /* Apenas para criar espaço para rolar */
+        margin: 0;
+        padding: 0;
     }
+    .side-bar {
+        width: 300px;
+        height: 100vh;
+        background: var(--header-color);
+        position: fixed;
+        top: 87px;
+        left: 0;
+        transition: left 0.3s ease; /* Adicionando transição para efeito suave */
+        z-index: 10000;
+    }
+    
+    .side-bar.active {
+        left: -300px;
+    }
+    
+    .menu-cima {
+        height: 70px;
+        background: var(--header-color);
+        position: fixed;
+        top: 87px;
+        right: 0;
+        left: 300px; /* Definindo a largura padrão */
+        display: flex;
+        justify-content: space-between;
+        z-index: 1000;
+        align-items: center;
+        transition: left 0.3s ease; /* Adicionando transição para efeito suave */
+    }
+    
+    /* Quando .side-bar.active e .menu-cima tem a mesma largura */
+    .side-bar.active + .menu-cima{
+        left: 0;
+    }
+    .j1{
+        width: 150px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .j1 i{
+        font-size: 30px;
+        cursor: pointer;
+        margin: 10px;
+        color: var(--font-color);
+    }
+    .j3{
+        width: 600px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .j3 input {
+        width: 350px;
+        height: 40px;
+        border: 2px solid #eee;
+        background: var(--background-color);
+        border: none;
+        outline: none;
+        border-radius: 6px;
+        padding-left: 30px;color: var(--font-color);
+    }
+    
+    .j3 i {
+        font-size: 22px;
+        margin-left: 5px;
+        padding-right: 17.5%;
+        position: absolute;
+        top: 50%; 
+        transform: translateY(-50%); 
+        left: calc(100% - 0);
+        color: #969696;
+    }
+    .slc1{
+        font-size: 18px;
+        width: 150px;
+        background: transparent;
+        border: none;
+        color: var(--font-color);
+        border-bottom: 2px solid var(--main-color);
+        outline: none;
+        cursor: pointer;
+    }
+    .slc1 option{
+        width: 10px;
+        background-color: var(--background-color);
+        color: var(--font-color);
+        padding: 10px;
+        position: relative;
+        border-radius: 10px;
+    }
+    .content-shop {
+        width: 100%;
+        height: auto;
+        min-height: calc(100vh - 210px); /* Subtrai a altura do topo */
+        position: absolute;
+        bottom: 0; /* Garante que o conteúdo se estenda até o final da página */
+        background: #009fb700;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 50px; /* Adiciona um preenchimento na parte inferior */
+    }
+    .op3{
+        width: 100%;
+        height: 200px;
+        border-bottom: 2px solid var(--line-color);
+    }
+    .tipi{
+        width: 100%;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        cursor: pointer;
+        transition: border-bottom 0.4s ease;
+    }
+    .tipi span{
+        font-size: 18px;
+        color: var(--font-color);
+    }
+
+    .tipi span:hover {
+        border-bottom: 3px solid var(--main-color);
+        transition: border-bottom 0.1s ease;
+    }
+    .clean {
+        position: fixed;
+        bottom: 0;
+        width: 300px;
+        height: 70px;
+        border-top: 2px solid var(--line-color);
+        display: flex;
+         align-items: center;
+         justify-content: center;
+    }
+    .clean button{
+        width: 200px;
+        height: 40px;
+        background: var(--main-color);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 15px;
+        cursor: pointer;
+    }
+    .clean button:hover{
+        background: var(--second-color);
+        transition: 0.3s;
+    }
+    .restu {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: var(--font-color);
+        padding: 10px;
+    }
+    
+    .input-container {
+        position: relative;
+    }
+    
+    .restu input {
+        width: 250px; /* Subtraindo a largura do ícone */
+        height: 40px;
+        background: var(--header-color);
+        margin: 5px;
+        border: 2px solid var(--line-color);
+        border-radius: 10px;
+        padding-left: 10px; /* Adicionando espaço para o ícone */
+    }
+    
+    .restu i {
+        position: absolute;
+        top: 19%;
+        left: 82%;
+        transform: translateY(-50%);
+        color: #888; /* Cor do ícone */
+        font-size: 20px; /* Tamanho do ícone */
+    }
+    .content-side {
+        width: 100%;
+        height: 800px;
+        position: relative;
+        overflow-y: auto; 
+        overflow-wrap: break-word;
+    }
+
+    .card-container {
+        width: 320px;
+        height: 370px;
+        margin: 50px auto;
+        position: relative;
+        border-radius: 5px;
+        background: var(--header-color);
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .cardC {
+        display: flex;
+        transition: transform 0.5s ease;
+        width: 100%;
+        height: 100%;
+      }
+      .photo {
+        flex: 0 0 100%;
+      }
+      .photo img {
+        width: 100%;
+        height: 50%;
+        object-fit: cover;
+      }
+      .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 25%;
+        transform: translateY(-50%);
+        padding: 10px;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.288);
+        color: white;
+        font-size: 18px;
+        z-index: 1;
+      }
+      .prev {
+        left: 0;
+      }
+      .next {
+        right: 0;
+      }

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Projeto</title>
+    <style>
+        /* Estilo para o side-bar */
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="#"><img src="logo.png"></a>
+        </div>
+        <div class="op">
+            <li class="opi1">Comprar
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <a href="carros_novos.html">Carros novos</a>
+                        <a href="#">Carros usados</a>
+                        <a href="#">Comprar Imóveis</a>
+                        <a href="#">Alugar Imóveis</a>
+                    </div>
+                </div>
+            </li>
+            <li>Vender</li>
+            <li>Oficios</li>
+            <li>Suporte</li>
+        </div>
+        <div class="ot">
+            <i class='bx bx-moon night'></i>
+            <i class='bx bx-heart'></i>
+            <i class='bx bx-user-circle'></i>
+        </div>
+    </div>
+    <div class="side-bar" id="sidebar">
+        <div class="content-side">
+        <div class="op3">
+            <div class="tipi">
+                <span>Carros</span>
+                <span>Motos</span>
+            </div>
+            <div class="restu">
+             <span>Localização</span>
+             <input type="text" placeholder="Digite onde..."><i class='bx bx-map'></i>
+            </div>
+        </div>
+        <div class="clean">
+            <button>Limpar</button>
+        </div>
+    </div>
+    </div>
+    <div class="menu-cima">
+        <div class="j1">
+        <i class='bx bx-slider-alt' onclick="toggleSidebar()"></i>
+    </div>
+    <div class="j3">
+        <input type="text" id="" placeholder="Pesquise aqui..">
+        <select class="slc1">
+            <option value="1">Mais Relevante</option>
+            <option value="2">Maior preço</option>
+            <option value="3">Menor preço</option>
+        </select>
+    </div>
+    </div>
+    <div class="content-shop">
+        <div class="card-container">
+            <div class="cardC">
+              <div class="photo"><img src="logo.png" alt="Imagem 1"></div>
+              <div class="photo"><img src="logo.png" alt="Imagem 1"></div>
+              <div class="photo"><img src="logo.png" alt="Imagem 1"></div>
+            </div>
+            <div class="prev">&#10094;</div>
+            <div class="next">&#10095;</div>
+          </div>
+    </div>
+</body>
+</html>
+<script>
+ function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("active"); // Alternar classe .active
+        }
+        // Adicione um ouvinte de evento para detectar quando a classe .side-bar é alterada
+document.addEventListener('DOMContentLoaded', function() {
+    const sideBar = document.querySelector('.side-bar');
+
+    // Verifica se a classe .active foi adicionada ou removida de .side-bar
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.attributeName === 'class') {
+                const isSideBarActive = sideBar.classList.contains('active');
+                const menuCima = document.querySelector('.menu-cima');
+                
+                // Adiciona ou remove a classe .active de .menu-cima conforme necessário
+                if (isSideBarActive) {
+                    menuCima.classList.add('active');
+                } else {
+                    menuCima.classList.remove('active');
+                }
+            }
+        });
+    });
+
+    observer.observe(sideBar, { attributes: true });
+});
+
+</script>
+<script>
+    const card = document.querySelector('.cardC');
+    const photos = document.querySelectorAll('.photo');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let counter = 0;
+
+    function showPhoto() {
+      card.style.transform = `translateX(${-counter * 320}px)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      counter++;
+      if (counter === photos.length) {
+        counter = 0;
+      }
+      showPhoto();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      counter--;
+      if (counter < 0) {
+        counter = photos.length - 1;
+      }
+      showPhoto();
+    });
+  </script>
+<script src="main.js"></script>

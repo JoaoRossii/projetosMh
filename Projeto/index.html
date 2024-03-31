@@ -10,15 +10,16 @@
 <body>
     <div class="header">
         <div class="logo">
-            <img src="logo.png">
+            <a href="index.html"><img src="logo.png"></a>
         </div>
         <div class="op">
             <li class="opi1">Comprar
                 <div class="dropdown">
                     <div class="dropdown-content">
-                        <a href="#">Carros novos</a>
+                        <a href="carros_novos.html">Carros novos</a>
                         <a href="#">Carros usados</a>
-                        <a href="#">Imóveis</a>
+                        <a href="#">Comprar Imóveis</a>
+                        <a href="#">Alugar Imóveis</a>
                     </div>
                 </div>
             </li>
@@ -62,7 +63,7 @@
 </section>
 <br><br><br><br>
 <div class="oq">
-    <h1>Principais Pesquisas</h1>
+    <h1>Principais Serviços</h1>
             <div class="card">
                 <h2>Card 1</h2>
                 <p>Descrição do Card 1.</p>
@@ -84,60 +85,11 @@
                 <p>Descrição do Card 5.</p>
             </div>
         </div>
+        <section class="s2">
         <div class="oq2">
-            <div class="dentro"></div>
         </div>
+    </section>
 </body>
 </html>
-<script>
-        const body = document.querySelector("body");
+<script src="main.js"></script>
 
-const nightModeToggle = document.querySelector('.night');
-
-
-nightModeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark');
-
-
-    localStorage.setItem('nightMode', body.classList.contains('dark') ? 'true' : 'false');
-});
-
-const nightMode = localStorage.getItem('nightMode');
-
-if (nightMode === 'true') {
-    body.classList.add('dark');
-};
-</script>
-<script>
-    let slideIndex = 0;
-
-    function showSlide(index) {
-        const slides = document.querySelectorAll('.carousel-item');
-        if (index >= slides.length) {
-            slideIndex = 0;
-        } else if (index < 0) {
-            slideIndex = slides.length - 1;
-        }
-        const offset = -slideIndex * 100;
-        document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
-    }
-
-    function nextSlide() {
-        slideIndex++;
-        showSlide(slideIndex);
-    }
-
-    function prevSlide() {
-        slideIndex--;
-        showSlide(slideIndex);
-    }
-
-    setInterval(nextSlide, 3000); // Auto slide every 3 seconds
-</script>
-<script>
-    function moveParaEsquerda(event) {
-        const scrollPosition = event.target.scrollLeft;
-        const dentroDiv = document.querySelector('.dentro');
-        dentroDiv.style.transform = `translateX(-${scrollPosition}px)`;
-    }
-</script>   
