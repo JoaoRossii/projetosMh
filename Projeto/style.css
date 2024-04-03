@@ -23,7 +23,7 @@ body{
     margin: auto;
     transition: 0.8s;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
    
 }
 .header{
@@ -640,4 +640,11 @@ body{
      .goxtei i{
         font-size: 25px;
         cursor: pointer;
+     }
+     .centri{
+        width: 100%;
+        height: fit-content; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
      }
