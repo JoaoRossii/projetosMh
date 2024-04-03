@@ -3,20 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Projeto</title>
 </head>
 <body>
-    <h1>Login</h1>
-    <hr>
-    <form action="login.php" method="post">
-        <label for="email"></label>
-        <input type="email" name="user" required>
-        <br>
-        <label for="senha"></label>
-        <input type="password" name="senha" required>
-        <a href="esqueceuSenha.html"><p>Esqueceu a senha?</p></a>
-        <button>Entrar</button>
-        <a href="cadastro.html"><p>Cadastre-se </p></a>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html"><img src="logo.png"></a>
+        </div>
+        <div class="op">
+            <li class="opi1">Comprar
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <a href="carros_novos.html">Carros novos</a>
+                        <a href="#">Carros usados</a>
+                        <a href="#">Comprar Imóveis</a>
+                        <a href="#">Alugar Imóveis</a>
+                    </div>
+                </div>
+            </li>
+                <li>Vender</li>
+                <li>Oficios</li>
+                <li>Suporte</li>
+        </div>
+        <div class="ot">
+            <i class='bx bx-moon night' ></i>
+            <i class='bx bx-heart'></i>
+            <i class='bx bx-user-circle'></i>
+        </div>
+    </div>
+    <div class="centi">
+    <form class="formL" action="login.php" method="post">
+        <p class="title">Login </p>
+        <p class="message">Acesse sua conta através do Login. </p>
+        <label>
+            <input required="" placeholder="" type="email" class="input">
+            <span>E-mail</span>
+        </label> <br>
+            
+        <label>
+            <input required="" placeholder="" type="password" class="input">
+            <span>Senha</span>
+        </label>
+        <span style="font-size: 15px; color: #009fb7; margin-left: 150px; margin-top: 20px;">Esqueceu a senha?</span>
+
+        <button class="submitL">Submit</button>
+        <p class="signin">Ainda não tem uma conta? <br><a href="cadastro.html">Cadastre-se</a> ou <a href="cadastroVend.html">Cadastre-se como vendedor.</a></p>
     </form>
+    </div>
 </body>
 </html>

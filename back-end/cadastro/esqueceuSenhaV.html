@@ -3,23 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esqueceu Senha</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Projeto</title>
 </head>
 <body>
-    <h1>Esqueceu senha</h1>
-    <hr>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html"><img src="logo.png"></a>
+        </div>
+        <div class="op">
+            <li class="opi1">Comprar
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <a href="carros_novos.html">Carros novos</a>
+                        <a href="#">Carros usados</a>
+                        <a href="#">Comprar Imóveis</a>
+                        <a href="#">Alugar Imóveis</a>
+                    </div>
+                </div>
+            </li>
+                <li>Vender</li>
+                <li>Oficios</li>
+                <li>Suporte</li>
+        </div>
+        <div class="ot">
+            <i class='bx bx-moon night' ></i>
+            <i class='bx bx-heart'></i>
+            <i class='bx bx-user-circle'></i>
+        </div>
+    </div>
+    <div class="centi">
+        <form class="formLc" action="send-password-resetv.php" method="post">
+            <p class="title">Redefirnir Senha</p>
+            <p class="message">Inisira a nova senha! </p>
+            <br>
+            <label>
+                <input required="" placeholder="" type="email" class="input">
+                <span>Nova senha</span>
+            </label>
+            <br><br>
+            <button class="submitL">Submit</button>
+        </div>  
 
-    <form action="send-password-resetv.php" method="post">
+
+</body>
+</html>
+
+<script>
+
+</script>    <!-- <form action="send-password-resetv.php" method="post">
         <label for="email"></label>
         <input type="email" name="email" id="email">
         é um cliente ? acesse <a href="esqueceuSenha.html">aqui</a>
 
         <button>enviar</button>
 
-    </form>
-</body>
-</html>
-
-<script>
-
-</script>
+    </form> -->

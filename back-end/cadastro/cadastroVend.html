@@ -36,106 +36,67 @@
 
     <!-- Cadastro cliente -->
     <div class="centi">
-        <form class="form" action="cadastro.php" method="post">
-            <p class="title">Cadastro</p>
+        <form class="form" action="cadastroVendedor.php" method="post">
+            <p class="title">Cadastro de Vendedor</p>
             <p class="message">Insira seus dados e comece a navegar! </p>
                 <div class="flex">
                 <label>
-                    <input required="" placeholder="" name="nome"type="text" class="input">
+                    <input required="" placeholder="" name="nomeV" type="text" class="input">
                     <span>Nome</span>
                 </label>
         
                 <label>
-                    <input required="" placeholder=""  name="email" type="text" class="input">
+                    <input required="" placeholder=""  name="emailV" type="text" class="input">
                     <span>E-mail</span>
                 </label>
             </div>  
             <div class="flex">
                 <label>
-                    <input required="" placeholder="" name="cpf" type="text" class="input">
+                    <input required="" placeholder="" name="cpfV" type="text" class="input">
                     <span>CPF</span>
                 </label>
         
                 <label>
-                    <input required="" placeholder=""  name="address" type="text" class="input">
+                    <input required="" placeholder=""  name="cnpj" type="text" class="input">
+                    <span>CNPJ</span>
+                </label>
+            </div>        <div class="flex">
+                <label>
+                    <input required="" placeholder=""  name="addressV" type="text" class="input">
                     <span>Endereço</span>
                 </label>
-            </div>        <div class="flex">
+        
                 <label>
-                    <input required="" placeholder=""  name="bairro" type="text" class="input">
+                    <input required="" placeholder="" name="bairroV" type="text" class="input">
                     <span>Bairro</span>
                 </label>
-        
-                <label>
-                    <input required="" placeholder="" name="estado" type="text" class="input">
-                    <span>Estado</span>
-                </label>
             </div>        <div class="flex">
                 <label>
-                    <input required="" placeholder="" name="senha"type="text" class="input">
-                    <span>Senha</span>
+                    <input required="" placeholder="" name="estadoV" type="text" class="input">
+                    <span>Estado</span>
                 </label>
         
                 <label>
-                    <input required="" placeholder="" name="cSenha" type="text" class="input">
-                    <span>Confirmar senha</span>
+                    <input required="" placeholder="" name="senhaV" type="text" class="input">
+                    <span>Senha</span>
                 </label>
-            </div>   
-            <div class="flex">
+                
+            </div>  
+           
+                <div class="flex">
+                    <label>
+                <input required="" placeholder="" name="cSenhaV" type="text" class="input">
+                <span>Confirmar senha</span>
+            </label> 
                 <input type="checkbox" id="termo" name="termo" placeholder="" required>
                 <label for="termo">Termos de Uso</label>
-                <a href="politicaPrivacidade.html"><span style="font-size: 12px; color: #009fb7;">Política de Uso e Privacidade</span></a>
+                <a href="politicaPrivacidade.html"><span style="font-size: 10px; color: #009fb7;">Política de Uso e Privacidade</span></a>
             </div>
             <br>
             <button type="submit" class="submit" href="login.php">Cadastrar</button>
-            <p class="signin">Quer ser um vendedor? <a href="#">Cadastre-se como um vendendor</a> </p>
+            <p class="signin">Quer ser um cliente? <a href="#">Cadastre-se como cliente</a> </p>
           
         </form> 
-    <!-- <div class="cardo">
-        <div class="formCad cli">
-            <form action="cadastro.php" method="post">
-                <div>
-                    <div>
-                        Nome:<input type="text" name="nome" placeholder="" required>
-                    </div>
-                    <div>
-                        Email:<input type="text" name="email" placeholder="" required>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        CPF:<input type="text" name="cpf" placeholder="" required>
-                    </div>
-                    <div>
-                        Endereço:<input type="text" name="address" placeholder="" required>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        Bairro:<input type="text" name="bairro" placeholder="" required>
-                    </div>
-                    <div>
-                        Estado:<input type="text" name="estado" placeholder="" required>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        Senha:<input type="password" id="" name="senha" placeholder="" required>
-                    </div>
-                    <div>
-                        Confirma Senha:<input type="password" id="" name="cSenha" placeholder="" required>
-                    </div>
-                </div>
-                <div>
-                    <input type="checkbox" id="termo" name="termo" placeholder="" required>
-                    <label for="termo">Termos de Uso</label>
-                    <a href="politicaPrivacidade.html">Política de Uso e Privacidade</a>
-                </div>
-                <button type="submit">Cadastrar</button>
-            </form>
-        </div>
-    </div>
-</div> -->
     <!-- Cadastro Vendedor -->
     <!-- <div class="formCad emp">
         <form action="cadastroVendedor.php" method="post">
