@@ -10,8 +10,8 @@
 }
 body.dark{
     --main-color: #e7b624;
-    --background-color: #18191a;
-    --header-color: #242526;
+    --background-color: #212121;
+    --header-color: #343434;
     --second-color: #009fb7;
     --font-color: #ffff;
     --terceira-color: #313333;
@@ -36,6 +36,11 @@ body{
     position: fixed;
     z-index: 1000;
 }
+@media only screen and (max-width: 600px) {
+   .header .op{
+      display: none;
+    }
+  }
 .logo{
     width: 150px;
     height: 85px;
@@ -79,9 +84,37 @@ body{
     align-items: center;
     cursor: pointer;
 }
+@media only screen and (max-width: 600px) {
+    .header .ot{
+       display: none;
+     }
+   }
 .ot i{
     font-size: 30px;
     color: var(--font-color);
+}
+.ot2{
+    width: 150px;
+    height: 85px;
+    justify-content: right;
+    align-items: center;
+    cursor: pointer;
+    display: none;
+}
+@media only screen and (max-width: 600px) {
+    .header .ot2{
+        width: 150px;
+        height: 85px;
+        justify-content: right;
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+     }
+   }
+.ot2 i{
+    font-size: 35px;
+    color: var(--font-color);
+    margin: 10px;
 }
 .primeira{
     width: 100%;
@@ -338,7 +371,7 @@ body{
         height: 70px;
         background: var(--header-color);
         position: fixed;
-        top: 87px;
+        top: 86px;
         right: 0;
         left: 300px; /* Definindo a largura padrão */
         display: flex;
@@ -381,6 +414,24 @@ body{
         border-radius: 6px;
         padding-left: 30px;color: var(--font-color);
     }
+    @media only screen and (max-width: 600px) {
+        .j3 input{
+            width: 250px;
+            height: 40px;
+            border: 2px solid #eee;
+            background: var(--background-color);
+            border: none;
+            outline: none;
+            border-radius: 6px;
+            padding-left: 30px;color: var(--font-color);
+         }
+       }
+       @media only screen and (max-width: 600px) {
+        .slc1{
+            display: none;
+        }
+        
+       }
     
     .j3 i {
         font-size: 22px;
@@ -449,6 +500,7 @@ body{
         position: fixed;
         bottom: 0;
         width: 300px;
+        background: var(--header-color);
         height: 70px;
         border-top: 2px solid var(--line-color);
         display: flex;

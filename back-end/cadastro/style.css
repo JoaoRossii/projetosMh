@@ -653,7 +653,7 @@ body{
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 500px;
+  max-width: 500px;
   height: 700px;
   background-color: #fff;
   padding: 20px;
@@ -903,10 +903,12 @@ body{
     color: #fff;
     font-size: 16px;
     transform: .3s ease;
+    cursor: pointer;
   }
   
   .submitL:hover {
-    background-color: rgb(56, 90, 194);
+    background-color: rgb(41, 150, 177);
+    transition: 0.3s ease;
   }
   
   @keyframes pulse {
@@ -1043,7 +1045,7 @@ body{
   }
   
   .submitL:hover {
-    background-color: rgb(56, 90, 194);
+    background-color: rgb(41, 150, 177);
   }
   
   @keyframes pulse {
