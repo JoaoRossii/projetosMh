@@ -705,9 +705,10 @@ body{
         width: 95%;
         height: 85vh;
         padding: 20px;
+        display: flex;
+        justify-content: space-between;
         position: absolute;
         top: 100px;
-        
      }
      .main-perf{
         width: 400px;
@@ -782,4 +783,31 @@ body{
     }
     .perf-op a{
         text-decoration: none;
+    }
+    .rest-perf{
+        width: 82%;
+        height: 800px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #009fb711;
+    }
+    .dados{
+        width: 45%;
+        height: 600px;
+        border-radius: 6px;
+        background: var(--header-color);
+        box-shadow: 0 0 20px 10px #00000033 ;
+    }
+    .rest-perf h2{
+        flex:  none;
+    }
+    .dados-cont{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .dados-cont i{
+        font-size: 30px;
     }
