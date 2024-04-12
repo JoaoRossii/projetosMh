@@ -40,17 +40,19 @@ if (isset($_POST['user'])) {
             $sql = "select * FROM cadastrovendedor where email='" . $email . "'";
 				$resultado = mysqli_query($conexao, $sql);
 				while ($dados = mysqli_fetch_array($resultado)) {
-					$_SESSION['empresa'] = $dados['empresa'];
-					$_SESSION['senha'] = $dados['senha'];
-					$_SESSION['email'] = $dados['email'];
                     $_SESSION['id'] = $dados['id'];
-                    $_SESSION['perfil'] = $dados['perfil'];
-                    $_SESSION['cnpj'] = $dados['CNPJ'];
+					$_SESSION['nome'] = $dados['nome'];
+					$_SESSION['email'] = $dados['email'];
+                    $_SESSION['cpf'] = $dados['cpf'];
+                    $_SESSION['cnpj'] = $dados['cnpj'];
+                    $_SESSION['rua'] = $dados['endereco'];
+                    $_SESSION['bairro'] = $dados['bairro'];
+                    $_SESSION['estado'] = $dados['estado'];
 				} 
                 
             echo "
             <script>
-            window.location.href='cadastro.html';
+            window.location.href='../index.html';
             </script>";
             }
         }
@@ -58,18 +60,19 @@ if (isset($_POST['user'])) {
         $row = $result_user->fetch_assoc();
         $senha_hash = $row["password_hash"];
 
-        // Verificar a senha para alunos
         if (password_verify ($senha, $senha_hash)) {
             // Senha correta 
             session_start();
             $sql = "select * FROM cadastrousuario where email='" . $email . "'";
 				$resultado = mysqli_query($conexao, $sql);
 				while ($dados = mysqli_fetch_array($resultado)) {
-					$_SESSION['nome'] = $dados['nm_projeto'];
-					$_SESSION['senha'] = $dados['senha'];
-					$_SESSION['email'] = $dados['email'];
                     $_SESSION['id'] = $dados['id'];
-                    $_SESSION['perfil'] = $dados['perfil'];
+					$_SESSION['nome'] = $dados['nome'];
+					$_SESSION['email'] = $dados['email'];
+                    $_SESSION['cpf'] = $dados['cpf'];
+                    $_SESSION['rua'] = $dados['endereco'];
+                    $_SESSION['bairro'] = $dados['bairro'];
+                    $_SESSION['estado'] = $dados['estado'];
 				}
             $sql1 = "select FROM projetos where email='" . $email . "'";
                 $result = mysqli_query($conexao, $sql);
@@ -78,7 +81,7 @@ if (isset($_POST['user'])) {
                 }
             echo "
             <script>
-            window.location.href='cadastro.html';
+            window.location.href='../../Projeto/index.html';
             </script>";
         }
     }
