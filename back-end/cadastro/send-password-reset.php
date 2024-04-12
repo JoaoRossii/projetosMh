@@ -2,6 +2,8 @@
 
 $email = $_POST["email"];
 
+
+
 $token = bin2hex(random_bytes(16));
 
 $token_hash = hash("sha256", $token);
@@ -18,6 +20,13 @@ $sql = "UPDATE cadastrousuario
         SET reset_token_hash = ?,
             reset_token_expires_at = ?
         WHERE email = ?";
+
+$sqlv = "UPDATE cadastrovendedor
+        SET reset_token_hash = ?,
+            reset_token_expires_at = ?
+        WHERE email = ?";
+
+
 
 $stmt = $conexao->prepare($sql);
 

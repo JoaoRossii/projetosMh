@@ -51,14 +51,14 @@ while ($registro = mysqli_fetch_array($resultado))
     {
         echo "
         <script> window.alert('Login já Cadastrado!');
-        window.location.href='cadastro.html';
+        window.location.href='cadastroVend.html';
         </script>";
         exit;
     }
 }
     if ($termo = true) {
         if ($senha == $cSenha) {
-            $sql= "INSERT INTO cadastrovendedor (nome, email, cpf, cnpj, endereco, bairro, estado, senha)
+            $sql= "INSERT INTO cadastrovendedor (nome, email, cpf, cnpj, endereco, bairro, estado, password_hash)
             values('$nome', '$email', '$cpf', '$cnpj', '$endereço', '$bairro', '$estado', '$password_hash')";
             $gravar = mysqli_query($conexao,$sql);
             echo "<script> window.alert('Cadastrado com Sucesso !');
@@ -67,13 +67,13 @@ while ($registro = mysqli_fetch_array($resultado))
         }  else {
                 echo "
                 <script> window.alert('Senhas não coincidem, tente novamente');
-                window.location.href='cadastro.html';
+                window.location.href='cadastroVend.html';
                 </script>";
             }
     } else {
         echo "
         <script> window.alert('Confirme os termos de uso.');
-        window.location.href='cadastro.html';
+        window.location.href='cadastroVend.html';
         </script>";
     }
 } 

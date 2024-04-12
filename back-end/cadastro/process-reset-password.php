@@ -61,4 +61,5 @@ $stmt->bind_param("ss", $password_hash, $user["id"]);
 
 $stmt->execute();
 
-echo "<script>alert('senha alterada, pode efetuar login')</script>";
+echo "<script>alert('senha alterada, pode efetuar login')
+    window.location.href='login.html'</script>";

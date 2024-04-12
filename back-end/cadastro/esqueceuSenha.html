@@ -3,21 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esqueceu Senha</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Esqueceu a Senha</title>
 </head>
 <body>
-    <h1>Esqueceu senha</h1>
-    <hr>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html"><img src="logo.png"></a>
+        </div>
+        <div class="op">
+            <li class="opi1">Comprar
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <a href="carros_novos.html">Carros novos</a>
+                        <a href="#">Carros usados</a>
+                        <a href="#">Comprar Imóveis</a>
+                        <a href="#">Alugar Imóveis</a>
+                    </div>
+                </div>
+            </li>
+                <li>Vender</li>
+                <li>Oficios</li>
+                <li>Suporte</li>
+        </div>
+        <div class="ot">
+            <i class='bx bx-moon night' ></i>
+            <i class='bx bx-heart'></i>
+            <i class='bx bx-user-circle'></i>
+        </div>
+    </div>
 
-    <form action="send-password-reset.php" method="post">
-        <label for="email"></label>
-        <input type="email" name="email" id="email">
-        é um vendedor ? acesse <a href="esqueceuSenhaV.html">aqui</a>
+    <div class="centi">
+        <form class="formLc" action="send-password-reset.php" method="post">
+            <p class="title">Esqueceu a senha</p>
+            <p class="message">Uma solicitação chegará em seu e-mail! </p>
+            <br>
+            <label>
+                <input required="" placeholder="" type="email" name="email" class="input">
+                <span>Insira seu e-mail</span>
+            </label>
+            <br><br>
+            <button class="submitL">Enviar</button>
+            <span style="font-size: 15px; color: #5e5e5e; margin-left: 100px; "> É um vendedor ? Clique<a href="esqueceuSenhaV.html" style="color: #009fb7;text-decoration: none;"> Aqui</a></span>
 
-        <button>enviar</button>
-
-    </form>
-</body>
+        </form>
+    </div>  
 </html>
 
 <script>
