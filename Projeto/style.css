@@ -253,13 +253,7 @@ body{
     z-index: 1;
 }
 
-.carousel-btn.prev {
-    left: 0;
-}
 
-.carousel-btn.next {
-    right: 0;
-}
  .dropdown {
         position: relative;
         display: inline-block;
@@ -587,8 +581,8 @@ body{
         height: 100%;
       }
       .photo {
-        flex: 0 0 100%;
-        height: fit-content;
+        flex: 0 0 auto;
+        width: 100%;
       }
       .photo img {
         width: 100%;
@@ -599,18 +593,17 @@ body{
       .prev, .next {
         cursor: pointer;
         position: absolute;
-        top: 25%;
+        top: 20%;
         transform: translateY(-50%);
+        font-size: 24px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
         padding: 10px;
-        border-radius: 10px;
-        background-color: #2e2e2ead;
-        color: rgb(255, 255, 255);
-        font-size: 18px;
-        z-index: 1;
       }
       .prev {
         left: 0;
       }
+  
       .next {
         right: 0;
       }

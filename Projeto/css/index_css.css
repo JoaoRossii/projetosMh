@@ -1527,7 +1527,7 @@ preloader
   justify-content: space-around;
   position: relative;
 }
-.ipt1{
+.ipt1 {
   width: 500px;
   height: 60px;
   border: 2px solid var(--line-color);
@@ -1536,16 +1536,23 @@ preloader
   border-radius: 10px;
   color: var(--font-color2);
   padding-left: 50px;
+  position: relative; /* Adiciona posição relativa */
 }
-.ipt1::placeholder{
+
+.ipt1::placeholder {
   font-weight: 700;
 }
+
+.bar {
+  position: relative; /* Adiciona posição relativa */
+}
+
 .bar i {
   font-size: 22px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 75px;
+  left: 75px; /* Posicionado em relação à .ipt1 */
   color: #969696;
 }
 .bar button{

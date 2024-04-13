@@ -10,7 +10,7 @@
 <body>
     <div class="header">
         <div class="logo">
-            <a href="index.html" style="text-decoration: none; color: #000; font-size: 25px;">Logo</a>
+            <a href="index.html" style="text-decoration: none; color: var(--font-color); font-size: 25px;">Logo</a>
         </div>
         <div class="op">
             <li class="opi1">Comprar
@@ -23,14 +23,31 @@
                     </div>
                 </div>
             </li>
-            <li>Vender </li>
+            <li class="opi1">Vender
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <a href="carros_novos.html">Vender Carros</a>
+                        <a href="#">Vender Imovel</a>
+                        <a href="CompouAlu_imoveis.html">Alugue seu imóvel</a>
+                    </div>
+                </div>
+            </li>
             <li>Oficios</li>
             <li>Suporte</li>
         </div>
         <div class="ot">
             <i class='bx bx-moon night'></i>
             <i class='bx bx-heart'></i>
-            <i class='bx bx-user-circle'></i>
+            <li class="opi1" style="list-style: none;">
+                <div class="dropdown"><i class='bx bx-user-circle'></i>
+                    <div class="dropdown-content2">
+                        <a href="anuncios.html"><i class='bx bx-edit' ></i>Meus Anuncios</a>
+                        <a href="perfil.html"><i class='bx bx-user'></i>Minha conta</a>
+                        <a href="#"><i class='bx bx-dollar-circle'></i>Saldos</a>
+                        <a href="#"><i class='bx bx-log-out'></i>Sair</a>
+                    </div>
+                </div>
+            </li>
         </div>
         <div class="ot2">
             <i class='bx bx-menu'></i>
@@ -394,30 +411,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 <script>
-    const card = document.querySelector('.cardC');
-    const photos = document.querySelectorAll('.photo');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    let counter = 0;
+const card = document.querySelector('.cardC');
+const photos = document.querySelectorAll('.photo');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+let counter = 0;
 
-    function showPhoto() {
-      card.style.transform = `translateX(${-counter * 320}px)`;
-    }
+function showPhoto() {
+  // Calcula o deslocamento da transição multiplicando a largura da foto pelo contador
+  const offset = -counter * photos[0].offsetWidth;
+  // Aplica o deslocamento ao estilo de transformação do cartão
+  card.style.transform = `translateX(${offset}px)`;
+}
 
-    nextBtn.addEventListener('click', () => {
-      counter++;
-      if (counter === photos.length) {
-        counter = 0;
-      }
-      showPhoto();
-    });
+nextBtn.addEventListener('click', () => {
+  counter++;
+  // Verifica se o contador ultrapassa o número de fotos disponíveis
+  if (counter > 2) {
+    counter = 0; // Retorna ao início
+  }
+  showPhoto();
+});
 
-    prevBtn.addEventListener('click', () => {
-      counter--;
-      if (counter < 0) {
-        counter = photos.length - 1;
-      }
-      showPhoto();
-    });
+prevBtn.addEventListener('click', () => {
+  counter--;
+  // Verifica se o contador é menor que zero (para retroceder do início ao final)
+  if (counter < 0) {
+    counter = 0; // Define o contador para a última foto
+  }
+  showPhoto();
+});
   </script>
 <script src="main.js"></script>
