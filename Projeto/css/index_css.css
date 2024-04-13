@@ -12,11 +12,12 @@ figure, header, nav, section, article, aside, footer, figcaption {
 
 :root{
   --main-color: #009fb7;
-  --background-color: #e5e5e5;
+  --background-color: #f2f2fe;
   --header-color: #ffffff;
   --second-color: #e7b624;
   --font-color: #111111;
   --line-color: #eee;
+  --font-color2: #777;
 }
 body.dark{
   --main-color: #e7b624;
@@ -26,6 +27,7 @@ body.dark{
   --font-color: #ffff;
   --terceira-color: #313333;
   --line-color: #888;
+  --font-color2: #999;
 }
 
 .clearfix:after {
@@ -88,17 +90,17 @@ ul {
 
 html,
 body {
-  background: var(--header-color);
+  background: var(--background-color);
   font-family: "Raleway", sans-serif;
 }
 
 ::selection {
-  background: #ff589e;
+  background: var(--main-color);
   color: #fff;
 }
 
 ::-moz-selection {
-  background: #ff589e;
+  background: var(--main-color);
   color: #fff;
 }
 
@@ -109,7 +111,7 @@ body {
 }
 
 .section.colored {
-  background: #f2f2fe;
+  background: var(--background-color);
 }
 
 .hr {
@@ -117,7 +119,7 @@ body {
   width: 100%;
   height: 1px;
   margin-top: 100px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ddd;
 }
 
 .left-heading.light .section-title {
@@ -141,7 +143,7 @@ body {
 .center-heading .section-title {
   font-weight: 500;
   font-size: 28px;
-  color: #1e1e1e;
+  color: var(--font-color);
   letter-spacing: 1.75px;
   line-height: 38px;
   margin-bottom: 20px;
@@ -155,7 +157,7 @@ body {
   text-align: center;
   font-weight: 400;
   font-size: 16px;
-  color: #777;
+  color: var(--font-color2);
   line-height: 28px;
   letter-spacing: 1px;
   margin-bottom: 50px;
@@ -167,14 +169,14 @@ body {
 
 .center-text p {
   font-size: 15px;
-  color: #777;
+  color: var(--font-color2);
   margin-bottom: 30px;
 }
 
 .left-text {
   font-weight: 400;
   font-size: 16px;
-  color: #777;
+  color: var(--font-color2);
   line-height: 28px;
   letter-spacing: 1px;
 }
@@ -305,7 +307,7 @@ a.main-button-slider {
 }
 
 a.main-button-slider:hover {
-  background-color: #8261ee;
+  background-color: var(--main-color);
 }
 
 a.main-button {
@@ -333,7 +335,7 @@ button.main-button {
   font-size: 13px;
   border-radius: 20px;
   padding: 12px 20px;
-  background-color: #8261ee;
+  background-color: var(--main-color);
   text-transform: uppercase;
   color: #fff;
   letter-spacing: 0.25px;
@@ -461,7 +463,7 @@ features
 .features-small-item {
   cursor: pointer;
   display: block;
-  background: #FFFFFF;
+  background: var(--header-color);
   box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.10);
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -509,7 +511,7 @@ features
 .features-small-item .features-title {
   font-weight: 500;
   font-size: 18px;
-  color: #1e1e1e;
+  color: var(--font-color);
   letter-spacing: 0.7px;
   margin-bottom: 15px;
   position: relative;
@@ -519,7 +521,7 @@ features
 .features-small-item p {
   font-weight: 400;
   font-size: 13px;
-  color: #777;
+  color: var(--font-color2);
   letter-spacing: 0.5px;
   line-height: 25px;
   position: relative;
@@ -828,8 +830,8 @@ team
 --------------------------------------------- 
 */
 .team-item {
-  background: #fff;
-  box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.10);
+  background: var(--header-color);
+  box-shadow: 0 0 20px 8px #00000046;
   border-radius: 20px;
   position: relative;
   margin-bottom: 30px;
@@ -842,10 +844,10 @@ team
 
 .team-item i {
   display: block;
-  margin-left: 25px;
+  margin-left: 10px;
   margin-top: 25px;
   font-size: 30px;
-  color: #4E47DE;
+  color: var(--main-color);
   text-align: center;
 }
 
@@ -883,7 +885,7 @@ team
   display: block;
   font-weight: 400;
   font-size: 17px;
-  color: #1e1e1e;
+  color: var(--font-color);
   letter-spacing: 0.25px;
   margin-bottom: 5px;
 }
@@ -892,7 +894,7 @@ team
   display: block;
   font-weight: 400;
   font-size: 15px;
-  color: #ff589e;
+  color: var(--main-color);
   letter-spacing: 0.25px;
 }
 
@@ -903,7 +905,7 @@ team
   margin-bottom: 25px;
   font-weight: 400;
   font-size: 15px;
-  color: #777;
+  color: var(--font-color);
   letter-spacing: 0.6px;
   line-height: 26px;
 }
@@ -914,7 +916,7 @@ pricing
 --------------------------------------------- 
 */
 .pricing-item {
-  background: #FFFFFF;
+  background: var(--header-color);
   box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   margin-bottom: 30px;
@@ -927,7 +929,7 @@ pricing
 }
 
 .pricing-item.active .pricing-header .pricing-title {
-  color: #1e1e1e;
+  color: var(--font-color);
 }
 
 .pricing-item.active .pricing-body .price-wrapper {
@@ -957,7 +959,7 @@ pricing
   font-weight: 500;
   font-size: 17px;
   letter-spacing: 0.25px;
-  color: #1e1e1e;
+  color: var(--font-color);
   width: 180px;
   height: 40px;
   line-height: 40px;
@@ -1016,7 +1018,7 @@ pricing
 }
 
 .pricing-item .pricing-body .list li.active {
-  color: #7a7a7a;
+  color: var(--font-color2);
   text-decoration: none;
 }
 
@@ -1058,7 +1060,7 @@ blog
 .blog-post-thumb h3 a {
   font-weight: 500;
   font-size: 18px;
-  color: #1e1e1e;
+  color: var(--font-color);
   letter-spacing: 0.25px;
   line-height: 26px;
   -webkit-transition: all 0.3s ease 0s;
@@ -1068,13 +1070,13 @@ blog
 }
 
 .blog-post-thumb h3 a:hover {
-  color: #ff589e;
+  color: var(--main-color);
 }
 
 .blog-post-thumb .text {
   font-weight: 400;
   font-size: 13px;
-  color: #777;
+  color: var(--font-color2);
   letter-spacing: 0.26px;
   line-height: 26px;
   margin-bottom: 15px;
@@ -1113,7 +1115,7 @@ contact
 #contact-us h5 {
   font-weight: 500;
   font-size: 18px;
-  color: #1e1e1e;
+  color: var(--font-color);
   letter-spacing: 0.25px;
   line-height: 26px;
 }
@@ -1121,7 +1123,7 @@ contact
 .contact-text {
   font-weight: 400;
   font-size: 14px;
-  color: #6F8BA4;
+  color: var(--font-color);
   letter-spacing: 0.6px;
   line-height: 26px;
 }
@@ -1132,9 +1134,11 @@ contact
 
 .contact-form input,
 .contact-form textarea {
-  color: #777;
+  color: var(--font-color2);
   font-size: 14px;
+  background: var(--header-color);
   border: 1px solid #eee;
+  outline: none;
   width: 100%;
   height: 50px;
   outline: none;
@@ -1153,14 +1157,11 @@ contact
   padding: 20px;
 }
 
-/* 
----------------------------------------------
-footer
---------------------------------------------- 
-*/
+
 footer {
-  background-image: linear-gradient(127deg, #a759d1 0%, #8261ee 91%);
+  background: var(--main-color);
   padding-top: 30px;
+  height: 600px;
 }
 
 footer .social {
@@ -1435,7 +1436,8 @@ preloader
   transition: display 0.8s ease; /* Adicionando transição suave */
 }
 .filtro1{
-  width: 1000px;
+  width: 90%;
+  max-width: 1000px;
   height: 200px;
   border-radius: 10px;
   background: var(--header-color);
@@ -1490,7 +1492,7 @@ preloader
   background: var(--terceira-color);
   outline: none;
   border-radius: 10px;
-  color: var(--font-color);
+  color: var(--font-color2);
   padding-left: 50px;
 }
 .ipt1::placeholder{

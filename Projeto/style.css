@@ -2,11 +2,12 @@
 
 :root{
     --main-color: #009fb7;
-    --background-color: #e5e5e5;
+    --background-color: #f2f2fe;
     --header-color: #ffffff;
     --second-color: #e7b624;
     --font-color: #111111;
     --line-color: #eee;
+    --font-color2: #777;
 }
 body.dark{
     --main-color: #e7b624;
@@ -16,6 +17,7 @@ body.dark{
     --font-color: #ffff;
     --terceira-color: #313333;
     --line-color: #888;
+    --font-color2: #888;
 }
 body{
     font-family: "Poppins", sans-serif;
