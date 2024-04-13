@@ -1069,3 +1069,45 @@ body{
         display: flex;
         justify-content: space-between;
     }
+    .dropdown-content2 {
+        visibility: hidden;
+        position: absolute;
+        top: 30px;
+        right: -15px;
+        background-color: var(--header-color);
+        min-width: 300px;
+        min-height: 200px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        transition: display 0.8s ease; /* Adicionando transição suave */
+        border-radius: 2px;
+      }
+      
+      .dropdown-content2 a {
+        color: var(--font-color);
+        padding: 8px 16px;
+        margin-top: 20px;
+        text-decoration: none;
+        display: block;
+      }
+      .dropdown-content2 i{
+        font-size: 25px;
+        margin: 10px;
+      }
+      .dropdown-content2 a:hover {
+        background-color: var(--background-color);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+      }
+      
+      .opi1:hover .dropdown-content2 {
+        visibility: visible;
+        transition: display 0.8s ease; /* Adicionando transição suave */
+        border-radius: 4px;
+      }
+      
+      /* Adicionando um estilo para manter o dropdown visível quando o mouse estiver sobre ele */
+      .dropdown-content2:hover {
+        display: block;
+        transition: display 0.8s ease; /* Adicionando transição suave */
+      }
