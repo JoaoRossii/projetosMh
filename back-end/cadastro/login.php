@@ -52,7 +52,7 @@ if (isset($_POST['user'])) {
                 
             echo "
             <script>
-            window.location.href='../index.html';
+            window.location.href='../../Projeto/index.php';
             </script>";
             }
         }
@@ -81,7 +81,7 @@ if (isset($_POST['user'])) {
                 }
             echo "
             <script>
-            window.location.href='../../Projeto/index.html';
+            window.location.href='../../Projeto/index.php';
             </script>";
         }
     }

@@ -62,25 +62,25 @@
             </div>
             <div class="camp">
                 <label>E-mail:</label>
-                <input type="text" placeholder="E-mail" name="" id="inp" value="fnzhdfbkf@gamil.com" disabled>
+                <input type="text" placeholder="E-mail" name="email" id="inp" value="fnzhdfbkf@gamil.com" disabled>
             </div>
                 <div class="camp">
                     <label>Nome Completo:</label>
                 <input type="text" placeholder="Nome completo" name="nome" id="inp" value="Nome que usuário vai colocar" disabled>
             </div>
-                <div class="camp">
-                    <label>Gênero:</label>
-                    <select class="slc" id="slc" disabled>
-                        <option value="" selected disabled>Selecione uma opção</option>
-                        <option value="1">Feminino</option>
-                        <option value="2">Masculino</option>
-                        <option value="3">Prefiro não dizer</option>
-                    </select>
-                </div>
+            <div class="camp">
+                <label>CPF:</label>
+            <input type="text" placeholder="CPF" id="inp" name="cpf" value="Nome que usuário vai colocar" disabled>
+        </div>
+        <div class="camp">
+            <label>CNPJ:</label>
+        <input type="text" placeholder="CNPJ" id="inp" name="cnpj" value="Nome que usuário vai colocar" disabled>
+    </div>
                 <div class="camp" >
                     <label>Data de Nascimento:</label>
                 <input type="date" placeholder="Data de nascimento" id="inp" disabled>
             </div>
+            
             <div class="btunin">
                 <button id="btnuzin">Alterar Dados</button>
             </div>
@@ -93,14 +93,23 @@
                     <i onclick="ende()" class='bx bxs-pencil tooltip' >
                         <span class="tooltiptext">Editar Endereço</span></i>
                 </div>
+                <form action="/../back-end/Update/alterarDadosUsuarioV.php">
                 <div class="camp">
                     <label>CEP:</label>
-                    <input type="text" placeholder="00000-000"   id="end" disabled>
+                    <input type="text" placeholder="00000-000" name="cep" id="end" disabled>
+                </div>
+                <div class="camp">
+                    <label>Rua:</label>
+                    <input type="text" placeholder="00000-000" name="rua"  id="end" disabled>
+                </div>
+                <div class="camp">
+                    <label>Bairro:</label>
+                    <input type="text" placeholder="00000-000" name="bairro" id="end" disabled>
                 </div>
                 <div class="campao">
                 <div class="camp">
                     <label>Estado:</label>
-                    <select class="slc-uf" disabled>
+                    <select class="slc-uf" name="estado" disabled>
                         <option value="" selected disabled>UF</option>
                         <option value="AC">AC</option>
                         <option value="AL">AL</option>
@@ -134,17 +143,17 @@
                 </div>
                 <div class="camp">
                     <label>Cidade:</label>
-                    <input type="text" placeholder="São Paulo" id="end" disabled>
+                    <input type="text" placeholder="São Paulo" name="cidade" id="end" disabled>
                 </div>
             </div>
             <div class="camp">
                 <label>Telefone:</label>
-                <input type="text" placeholder="00 00000-0000"   id="end" disabled>
+                <input type="text" placeholder="00 00000-0000"  name="telefoneCel" id="end" disabled>
             </div>
                 <div class="btunin">
-                    <button id="btnuzin2">Alterar</button>
+                    <button id="btnuzin2" type="submit">Alterar</button>
                 </div>
-                    
+            </form>        
             </div>
         </div>
     </div>
@@ -157,10 +166,6 @@ inputs.forEach(function(input) {
     input.disabled = false; // Habilita cada elemento
     input.style.cursor = "auto"; // Define o cursor como 'auto' para cada elemento
 });
-
-    var select = document.getElementById('slc');
-    select.disabled = false;
-    select.style.cursor = "auto";
 
     var btn = document.getElementById('btnuzin');
     btn.style.display = "block";
