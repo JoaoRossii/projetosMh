@@ -10,7 +10,7 @@
 <body>
     <div class="header">
         <div class="logo">
-            <a href="index.html" style="text-decoration: none; color: #000; font-size: 25px;">Logo</a>
+            <a href="index.html" style="text-decoration: none; color: var(--font-color); font-size: 25px;">Logo</a>
         </div>
         <div class="op">
             <li class="opi1">Comprar
@@ -23,14 +23,31 @@
                     </div>
                 </div>
             </li>
-            <li>Vender </li>
+            <li class="opi1">Vender
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <a href="carros_novos.html">Vender Carros</a>
+                        <a href="#">Vender Imovel</a>
+                        <a href="CompouAlu_imoveis.html">Alugue seu imóvel</a>
+                    </div>
+                </div>
+            </li>
             <li>Oficios</li>
             <li>Suporte</li>
         </div>
         <div class="ot">
             <i class='bx bx-moon night'></i>
             <i class='bx bx-heart'></i>
-            <i class='bx bx-user-circle'></i>
+            <li class="opi1" style="list-style: none;">
+                <div class="dropdown"><i class='bx bx-user-circle'></i>
+                    <div class="dropdown-content2">
+                        <a href="anuncios.html"><i class='bx bx-edit' ></i>Meus Anuncios</a>
+                        <a href="perfil.html"><i class='bx bx-user'></i>Minha conta</a>
+                        <a href="#"><i class='bx bx-dollar-circle'></i>Saldos</a>
+                        <a href="#"><i class='bx bx-log-out'></i>Sair</a>
+                    </div>
+                </div>
+            </li>
         </div>
         <div class="ot2">
             <i class='bx bx-menu'></i>
@@ -62,21 +79,20 @@
             </div>
             <div class="camp">
                 <label>E-mail:</label>
-                <input type="text" placeholder="E-mail" name="" id="inp" value="fnzhdfbkf@gamil.com" disabled>
+                <input type="text" placeholder="E-mail" id="inp" value="fnzhdfbkf@gamil.com" disabled>
             </div>
                 <div class="camp">
                     <label>Nome Completo:</label>
-                <input type="text" placeholder="Nome completo" name="nome" id="inp" value="Nome que usuário vai colocar" disabled>
+                <input type="text" placeholder="Nome completo" id="inp" value="Nome que usuário vai colocar" disabled>
             </div>
-                <div class="camp">
-                    <label>Gênero:</label>
-                    <select class="slc" id="slc" disabled>
-                        <option value="" selected disabled>Selecione uma opção</option>
-                        <option value="1">Feminino</option>
-                        <option value="2">Masculino</option>
-                        <option value="3">Prefiro não dizer</option>
-                    </select>
-                </div>
+            <div class="camp">
+                <label>Nome Completo:</label>
+            <input type="text" placeholder="Nome completo" id="inp" value="Nome que usuário vai colocar" disabled>
+        </div>
+        <div class="camp">
+            <label>Nome Completo:</label>
+        <input type="text" placeholder="Nome completo" id="inp" value="Nome que usuário vai colocar" disabled>
+    </div>
                 <div class="camp" >
                     <label>Data de Nascimento:</label>
                 <input type="date" placeholder="Data de nascimento" id="inp" disabled>
@@ -96,6 +112,10 @@
                 <div class="camp">
                     <label>CEP:</label>
                     <input type="text" placeholder="00000-000"   id="end" disabled>
+                </div>
+                <div class="camp">
+                    <label>Rua:</label>
+                    <input type="text" placeholder="R.carlinhos"   id="end" disabled>
                 </div>
                 <div class="campao">
                 <div class="camp">
@@ -158,9 +178,6 @@ inputs.forEach(function(input) {
     input.style.cursor = "auto"; // Define o cursor como 'auto' para cada elemento
 });
 
-    var select = document.getElementById('slc');
-    select.disabled = false;
-    select.style.cursor = "auto";
 
     var btn = document.getElementById('btnuzin');
     btn.style.display = "block";

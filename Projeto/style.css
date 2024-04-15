@@ -2,11 +2,12 @@
 
 :root{
     --main-color: #009fb7;
-    --background-color: #e5e5e5;
+    --background-color: #f2f2fe;
     --header-color: #ffffff;
     --second-color: #e7b624;
     --font-color: #111111;
     --line-color: #eee;
+    --font-color2: #777;
 }
 body.dark{
     --main-color: #e7b624;
@@ -16,6 +17,7 @@ body.dark{
     --font-color: #ffff;
     --terceira-color: #313333;
     --line-color: #888;
+    --font-color2: #888;
 }
 body{
     font-family: "Poppins", sans-serif;
@@ -251,13 +253,7 @@ body{
     z-index: 1;
 }
 
-.carousel-btn.prev {
-    left: 0;
-}
 
-.carousel-btn.next {
-    right: 0;
-}
  .dropdown {
         position: relative;
         display: inline-block;
@@ -585,8 +581,8 @@ body{
         height: 100%;
       }
       .photo {
-        flex: 0 0 100%;
-        height: fit-content;
+        flex: 0 0 auto;
+        width: 100%;
       }
       .photo img {
         width: 100%;
@@ -597,18 +593,17 @@ body{
       .prev, .next {
         cursor: pointer;
         position: absolute;
-        top: 25%;
+        top: 20%;
         transform: translateY(-50%);
+        font-size: 24px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
         padding: 10px;
-        border-radius: 10px;
-        background-color: #2e2e2ead;
-        color: rgb(255, 255, 255);
-        font-size: 18px;
-        z-index: 1;
       }
       .prev {
         left: 0;
       }
+  
       .next {
         right: 0;
       }
@@ -709,6 +704,7 @@ body{
         width: 95%;
         height: 85vh;
         padding: 20px;
+        align-items: center;
         display: flex;
         justify-content: space-between;
         position: absolute;
@@ -716,9 +712,10 @@ body{
      }
      .main-perf{
         width: 400px;
-        height: 95%;
-        box-shadow: 0 0 20px 10px #00000033 ;
-        background: var(--header-color);
+    height: 90%;
+    max-height: 800px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 20px 10px;
+    background: var(--header-color);
      }
      .display-perf{
         width: 100%;
@@ -790,8 +787,9 @@ body{
     .rest-perf2{
         width: 82%;
         margin-left: 20px;
-        height: 800px;
-        display: flex; 
+        height: 95%;
+        max-height: 800px;
+        display: flex;
         box-shadow: 0 0 20px 10px #00000033;
         background: var(--header-color);
         flex-direction: column;
@@ -845,13 +843,14 @@ body{
     }
     .chat-main{
         width: 82%;
-        height: 800px;
+        height: 90%;
+        max-height: 800px;
         display: flex;
+        margin-left: 40px;
         background: var(--header-color);
-        align-items: center;    
+        align-items: center;
         border-radius: 10px;
         box-shadow: 0 0 20px 10px #00000049;
-        margin-left: 20px;
     }
     .chat-op{
         width: 400px;
@@ -929,6 +928,7 @@ body{
     }
     .rest-perf h2{
         flex:  none;
+        margin-left: 10px;
     }
     .dados-cont {
         width: 100%;
@@ -940,6 +940,7 @@ body{
     .dados-cont i{
         font-size: 30px;
         cursor: pointer;
+        margin-right: 10px;
     }
     .ti{
         width: 600px;
@@ -951,7 +952,7 @@ body{
     }
     .dados2{
         width: 45%;
-        height: 700px;
+        height: 600px;
         border-radius: 6px;
         background: var(--header-color);
         box-shadow: 0 0 20px 10px #00000033 ;
@@ -1039,7 +1040,8 @@ body{
         opacity: 1;
     }
     .camp .slc-uf{
-        width: 400px;
+        width: 100%;
+        max-width: 400px;
         height: 45px;
         border-radius: 10px;
         border: none;
@@ -1068,3 +1070,46 @@ body{
         display: flex;
         justify-content: space-between;
     }
+    .dropdown-content2 {
+        visibility: hidden;
+    position: absolute;
+    top: 30px;
+    right: -4px;
+    background-color: var(--header-color);
+    min-width: 250px;
+    min-height: 200px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transition: display 0.8s ease;
+    border-radius: 2px;
+      }
+      
+      .dropdown-content2 a {
+        color: var(--font-color);
+        padding: 8px 16px;
+        margin-top: 20px;
+        text-decoration: none;
+        display: block;
+      }
+      .dropdown-content2 i{
+        font-size: 25px;
+        margin: 10px;
+      }
+      .dropdown-content2 a:hover {
+        background-color: var(--background-color);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+      }
+      
+      .opi1:hover .dropdown-content2 {
+        visibility: visible;
+        transition: display 0.8s ease; /* Adicionando transição suave */
+        border-radius: 4px;
+      }
+      
+      /* Adicionando um estilo para manter o dropdown visível quando o mouse estiver sobre ele */
+      .dropdown-content2:hover {
+        display: block;
+        transition: display 0.8s ease; /* Adicionando transição suave */
+      }
+      

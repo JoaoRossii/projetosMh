@@ -19,29 +19,4 @@ if (nightMode === 'true') {
 
     let slideIndex = 0;
 
-    function showSlide(index) {
-        const slides = document.querySelectorAll('.carousel-item');
-        if (index >= slides.length) {
-            slideIndex = 0;
-        } else if (index < 0) {
-            slideIndex = slides.length - 1;
-        }
-        const offset = -slideIndex * 100;
-        document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
-    }
-
-    function nextSlide() {
-        slideIndex++;
-        showSlide(slideIndex);
-    }
-
-    function prevSlide() {
-        slideIndex--;
-        showSlide(slideIndex);
-    }
-
-    setInterval(nextSlide, 3000); 
-
-
- 
    
