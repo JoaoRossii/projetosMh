@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Perfil</title>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: #000; font-size: 25px;">Logo</a>
+        </div>
+        <div class="op">
+            <li class="opi1">Comprar
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <a href="carros_novos.html">Carros novos</a>
+                        <a href="#">Carros usados</a>
+                        <a href="CompouAlu_imoveis.html">Comprar Imóveis</a>
+                        <a href="#">Alugar Imóveis</a>
+                    </div>
+                </div>
+            </li>
+            <li>Vender </li>
+            <li>Oficios</li>
+            <li>Suporte</li>
+        </div>
+        <div class="ot">
+            <i class='bx bx-moon night'></i>
+            <i class='bx bx-heart'></i>
+            <i class='bx bx-user-circle'></i>
+        </div>
+        <div class="ot2">
+            <i class='bx bx-menu'></i>
+        </div>
+    </div>
+    <div class="content-perf">
+        <div class="main-perf">
+            <div class="display-perf">
+                <img src="https://i.pinimg.com/originals/42/07/81/420781385c0f05000a2e30cd2381fc3c.gif" alt="">
+                <i class='bx bx-user-circle'></i>
+            </div>
+            <div class="perf-op">
+                <a href="anuncios.html"><li><i class='bx bx-edit' ></i>Meus anuncios</li></a>
+                <li><i class='bx bx-heart'></i>Favoritos</li>
+                <li><i class='bx bx-bell' ></i>Alertas</li>
+                <li><i class='bx bx-dollar-circle'></i>Saldos</li>
+                <a href="chat.html"><li><i class='bx bx-chat'></i>Chat</li></a>
+                <li class="usi"><i class='bx bx-user'></i>Minha conta</li>
+                <li><i class='bx bx-log-out'></i>Sair</li>
+            </div>
+        </div>
+        <div class="rest-perf">
+            <div class="dados">
+                <div class="dados-cont">
+                <h2>Meus Dados:</h2>
+                <div class="ti"></div>
+                <i onclick="thomas()" class='bx bxs-pencil tooltip'>
+                    <span class="tooltiptext">Editar Dados</span></i>
+            </div>
+            <div class="camp">
+                <label>E-mail:</label>
+                <input type="text" placeholder="E-mail" name="email" id="inp" value="fnzhdfbkf@gamil.com" disabled>
+            </div>
+                <div class="camp">
+                    <label>Nome Completo:</label>
+                <input type="text" placeholder="Nome completo" name="nome" id="inp" value="Nome que usuário vai colocar" disabled>
+            </div>
+            <div class="camp">
+                <label>CPF:</label>
+            <input type="text" placeholder="CPF" id="inp" name="cpf" value="Nome que usuário vai colocar" disabled>
+        </div>
+        <div class="camp">
+            <label>CNPJ:</label>
+        <input type="text" placeholder="CNPJ" id="inp" name="cnpj" value="Nome que usuário vai colocar" disabled>
+    </div>
+                <div class="camp" >
+                    <label>Data de Nascimento:</label>
+                <input type="date" placeholder="Data de nascimento" id="inp" disabled>
+            </div>
+            
+            <div class="btunin">
+                <button id="btnuzin">Alterar Dados</button>
+            </div>
+                
+            </div>
+            <div class="dados2">
+                <div class="dados-cont">
+                    <h2>Endereço e contato:</h2>
+                    <div class="ti2"></div>
+                    <i onclick="ende()" class='bx bxs-pencil tooltip' >
+                        <span class="tooltiptext">Editar Endereço</span></i>
+                </div>
+                <form action="/../back-end/Update/alterarDadosUsuarioV.php">
+                <div class="camp">
+                    <label>CEP:</label>
+                    <input type="text" placeholder="00000-000" name="cep" id="end" disabled>
+                </div>
+                <div class="camp">
+                    <label>Rua:</label>
+                    <input type="text" placeholder="00000-000" name="rua"  id="end" disabled>
+                </div>
+                <div class="camp">
+                    <label>Bairro:</label>
+                    <input type="text" placeholder="00000-000" name="bairro" id="end" disabled>
+                </div>
+                <div class="campao">
+                <div class="camp">
+                    <label>Estado:</label>
+                    <select class="slc-uf" name="estado" disabled>
+                        <option value="" selected disabled>UF</option>
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
+                    </select>
+                    
+                </div>
+                <div class="camp">
+                    <label>Cidade:</label>
+                    <input type="text" placeholder="São Paulo" name="cidade" id="end" disabled>
+                </div>
+            </div>
+            <div class="camp">
+                <label>Telefone:</label>
+                <input type="text" placeholder="00 00000-0000"  name="telefoneCel" id="end" disabled>
+            </div>
+                <div class="btunin">
+                    <button id="btnuzin2" type="submit">Alterar</button>
+                </div>
+            </form>        
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <script>
+   function thomas() {
+    var inputs = document.querySelectorAll('[id="inp"]'); // Seleciona todos os elementos com o ID 'end'
+
+inputs.forEach(function(input) {
+    input.disabled = false; // Habilita cada elemento
+    input.style.cursor = "auto"; // Define o cursor como 'auto' para cada elemento
+});
+
+    var btn = document.getElementById('btnuzin');
+    btn.style.display = "block";
+}
+    </script>
+    <script>
+     function ende() {
+        var inputs = document.querySelectorAll('[id="end"]'); // Seleciona todos os elementos com o ID 'end'
+
+inputs.forEach(function(input) {
+    input.disabled = false; // Habilita cada elemento
+    input.style.cursor = "auto"; // Define o cursor como 'auto' para cada elemento
+});
+
+    var btn2 = document.getElementById('btnuzin2');
+    btn2.style.display = "block";
+}
+    </script>
