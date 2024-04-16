@@ -1,3 +1,42 @@
+<?php 
+
+$servername = "localhost";
+$username = "root";
+$password = "Sk8long2077#";
+$dbname = "getninjas";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Erro na conexão com o banco de dados: " . $conn->connect_error);
+}
+
+$sql = "SELECT nome, tipo, email, especificações, preco, km, carroceria FROM carro join cadastrovendedor on fkVendor = idVendor where id = 1"; /* query utilizada para buscar dados no banco para exibir em um card */
+$result = $conn->query($sql);
+$resulte = $conn->query($sql);
+
+session_start();
+$id = $_SESSION['id'];
+$nome = $_SESSION['nome'];
+$email = $_SESSION['email'];
+$cpf = $_SESSION['cpf'];
+$rua = $_SESSION['rua'];
+$bairro = $_SESSION['bairro'];
+$estado = $_SESSION['estado'];
+
+require_once('conecta.php');
+
+$SQL = "select * FROM cadastrousuario where email='" . $email . "'";
+$resultado = mysqli_query($conexao, $SQL);
+
+// while ($dados = mysqli_fetch_array($resultado)) {
+//     $_SESSION['nome'] = $dados['nm_projeto'];
+// 	$_SESSION['senha'] = $dados['senha'];
+// 	$_SESSION['email'] = $dados['email'];
+//     $_SESSION['perfil'] = $dados['perfil'];
+// }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +49,7 @@
 <body>
     <div class="header">
         <div class="logo">
-            <a href="index.html" style="text-decoration: none; color: var(--font-color); font-size: 25px;">Logo</a>
+            <a href="index.php" style="text-decoration: none; color: var(--font-color); font-size: 25px;">Logo</a>
         </div>
         <div class="op">
             <li class="opi1">Comprar
@@ -79,23 +118,23 @@
             </div>
             <div class="camp">
                 <label>E-mail:</label>
-                <input type="text" placeholder="E-mail" id="inp" value="fnzhdfbkf@gamil.com" disabled>
+                <input type="text" placeholder="<?php echo $email ?>" id="inp"  disabled>
             </div>
                 <div class="camp">
                     <label>Nome Completo:</label>
-                <input type="text" placeholder="Nome completo" id="inp" value="Nome que usuário vai colocar" disabled>
+                <input type="text" placeholder="<?php echo $nome ?>" id="inp"  disabled>
             </div>
             <div class="camp">
                 <label>CPF:</label>
-            <input type="text" placeholder="Nome completo" id="inp" value="Nome que usuário vai colocar" disabled>
+            <input type="text" placeholder="<?php echo $cpf ?>" id="inp"  disabled>
         </div>
         <div class="camp">
             <label>CNPJ:</label>
-        <input type="text" placeholder="Nome completo" id="inp" value="Nome que usuário vai colocar" disabled>
+        <input type="text" placeholder="<?php echo $email ?>" id="inp"  disabled>
     </div>
                 <div class="camp" >
                     <label>Data de Nascimento:</label>
-                <input type="date" placeholder="Data de nascimento" id="inp" disabled>
+                <input type="date" placeholder="<?php echo $email ?>" id="inp" disabled>
             </div>
             <div class="btunin">
                 <button id="btnuzin">Alterar Dados</button>
@@ -115,13 +154,13 @@
                 </div>
                 <div class="camp">
                     <label>Rua:</label>
-                    <input type="text" placeholder="R.carlinhos"   id="end" disabled>
+                    <input type="text" placeholder="<?php echo $rua ?>"   id="end" disabled>
                 </div>
                 <div class="campao">
                 <div class="camp">
                     <label>Estado:</label>
                     <select class="slc-uf" disabled>
-                        <option value="" selected disabled>UF</option>
+                        <option value="<?php echo $estado ?>" selected disabled>UF</option>
                         <option value="AC">AC</option>
                         <option value="AL">AL</option>
                         <option value="AP">AP</option>
