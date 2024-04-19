@@ -24,43 +24,23 @@ $rua = $_SESSION['rua'];
 $bairro = $_SESSION['bairro'];
 $estado = $_SESSION['estado'];
 
+include "conecta.php";
 
-
-$SQL = "select * FROM cadastrousuario where email='" . $email . "'";
-$resultado = mysqli_query($conexao, $SQL);
-
-// while ($dados = mysqli_fetch_array($resultado)) {
-//     $_SESSION['nome'] = $dados['nm_projeto'];
-// 	$_SESSION['senha'] = $dados['senha'];
-// 	$_SESSION['email'] = $dados['email'];
-//     $_SESSION['perfil'] = $dados['perfil'];
-// }
-
-$selectCarro = "SELECT * FROM veiculo";
+$selectCarro = "SELECT nome, tipo, email, especificações, preco, km, carroceria, estado, cidade FROM carro join cadastrovendedor on fkVendor = idVendor ";
 
 if (!empty($_POST)) {
     $selectCarro .= " WHERE (1=1)";
-    if (isset($_POST["marca"])){
-        $marca = $_POST["marca"];
-        $selectCarro .= "AND marca = '$marca'";
+    if (isset($_POST["cidade"])){
+        $cidade = $_POST["cidade"];
+        $selectCarro .= "AND cidade = '$cidade'";
     }
 
-    if (isset($_POST["MaxPreco"])){
-        $precoMax = $_POST["MaxPreco"];
-        $selectCarro .= "AND marca = '$precoMax'";
-    }
-
-    if($_POST["pesq"]!=""){
-        $pesq = $_POST["pesq"];
-        $selectCarro .= "AND nome like '%$nome%'";
-    }
+    
     
 }
-$selectCarro .= "ORDER BY nome";
 
-$sql = "SELECT nome, tipo, email, especificações, preco, km, carroceria, estado FROM carro join cadastrovendedor on fkVendor = idVendor where id = 1"; /* query utilizada para buscar dados no banco para exibir em um card */
-$result = $conn->query($sql);
-$resulte = $conn->query($sql);
+$resultado = mysqli_query($conexao,$selectCarro)
+    or die(mysqli_error($conexao));
 ?>
 
 
@@ -130,8 +110,9 @@ $resulte = $conn->query($sql);
         </div>
         <div class="j3">
         <form action="resultado.php" method="post" >
-            <input type="text" id="" placeholder="Digite o nome" name="nome">
+            <input type="text" id="" placeholder="Pesquise aqui.." name="nome">
             <select class="slc1">
+                <option value="1" name ="marca" >Marca</option>
                 <option value="2" name="MaxPreco" >Maior preço</option>
                 <option value="3" name="MinPreco" >Menor preço</option>
             </select>
@@ -142,8 +123,7 @@ $resulte = $conn->query($sql);
         <div class="content-shop">
             <?php
 
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
+                    while ($row = mysqli_fetch_assoc($resultado)) {
                     echo "<div class='card-container'>";
                     echo "<div class='cardC'>";
                     echo "<div class='photo'><img src='uno.png' alt='Imagem 1'></div>";  
@@ -177,9 +157,6 @@ $resulte = $conn->query($sql);
                     echo "<div class='prev'>&#10094;</div>";
                     echo "<div class='next'>&#10095;</div>";
                     echo "</div>";
-                    }
-                } else {
-                    echo "Nenhum Carro econtrado.";
                     }
                 ?>
 

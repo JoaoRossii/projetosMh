@@ -43,11 +43,11 @@ if (isset($_POST['nomeV'])){
 
     $password_hash = password_hash($_POST["senhaV"], PASSWORD_DEFAULT);
 // consultar se login  ja existe 
-$buscar = "select nome from cadastrovendedor where nome = '" .$nome . "'";
+$buscar = "select nomeVend from cadastrovendedor where nomeVend = '" .$nome . "'";
 $resultado = mysqli_query($conexao,$buscar);
 while ($registro = mysqli_fetch_array($resultado))
 {
-    if ($nome==$registro['nome'])
+    if ($nome==$registro['nomeVend'])
     {
         echo "
         <script> window.alert('Login já Cadastrado!');
@@ -58,7 +58,7 @@ while ($registro = mysqli_fetch_array($resultado))
 }
     if ($termo = true) {
         if ($senha == $cSenha) {
-            $sql= "INSERT INTO cadastrovendedor (nome, email, cpf, cnpj, endereco, bairro, estado, password_hash)
+            $sql= "INSERT INTO cadastrovendedor (nomeVend, email, cpf, cnpj, endereco, bairro, estado, password_hash)
             values('$nome', '$email', '$cpf', '$cnpj', '$endereço', '$bairro', '$estado', '$password_hash')";
             $gravar = mysqli_query($conexao,$sql);
             echo "<script> window.alert('Cadastrado com Sucesso !');

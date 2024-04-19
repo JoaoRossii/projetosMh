@@ -23,13 +23,13 @@
 
 include "conecta.php";
 
-$selectCarro = "SELECT * FROM veiculo";
+$selectCarro = "SELECT * FROM carro";
 
 if (!empty($_POST)) {
     $selectCarro .= " WHERE (1=1)";
     if (isset($_POST["ano"])){
         $ano = $_POST["ano"];
-        $selectCarro .= "AND ano = '$ano'";
+        $selectCarro .= "AND carroceria = '$ano'";
     }
 
     if (isset($_POST["marca"])){
@@ -43,7 +43,6 @@ if (!empty($_POST)) {
     }
     
 }
-$selectCarro .= "ORDER BY nome";
 
 $resultado = mysqli_query($conexao,$selectCarro)
     or die(mysqli_error($conexao));

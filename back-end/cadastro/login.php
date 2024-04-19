@@ -22,7 +22,7 @@ if (isset($_POST['user'])) {
 
     // Consulta para verificar o email na tabela de "Vendedor", se não encontrado em "Usuario"
     if ($result_user->num_rows === 0) {
-        $query_vend = "SELECT id, password_hash FROM cadastrovendedor WHERE email = '" . $email . "'";
+        $query_vend = "SELECT idVendor, password_hash FROM cadastrovendedor WHERE email = '" . $email . "'";
         $result_vend = $conexao->query($query_vend);
         
      
@@ -40,14 +40,17 @@ if (isset($_POST['user'])) {
             $sql = "select * FROM cadastrovendedor where email='" . $email . "'";
 				$resultado = mysqli_query($conexao, $sql);
 				while ($dados = mysqli_fetch_array($resultado)) {
-                    $_SESSION['id'] = $dados['id'];
-					$_SESSION['nome'] = $dados['nome'];
+                    $_SESSION['id'] = $dados['idVendor'];
+					$_SESSION['nome'] = $dados['nomeVend'];
 					$_SESSION['email'] = $dados['email'];
                     $_SESSION['cpf'] = $dados['cpf'];
                     $_SESSION['cnpj'] = $dados['cnpj'];
                     $_SESSION['rua'] = $dados['endereco'];
                     $_SESSION['bairro'] = $dados['bairro'];
                     $_SESSION['estado'] = $dados['estado'];
+                    $_SESSION['telefone'] = $dados['telefone'];
+                    $_SESSION['dtnasc'] = $dados['dtnasc'];
+                    $_SESSION['cidade'] = $dados['cidade'];
 				} 
                 
             echo "
@@ -73,6 +76,9 @@ if (isset($_POST['user'])) {
                     $_SESSION['rua'] = $dados['endereco'];
                     $_SESSION['bairro'] = $dados['bairro'];
                     $_SESSION['estado'] = $dados['estado'];
+                    $_SESSION['telefone'] = $dados['telefone'];
+                    $_SESSION['dtnasc'] = $dados['dtnasc'];
+                    $_SESSION['cidade'] = $dados['cidade'];
 				}
             $sql1 = "select FROM projetos where email='" . $email . "'";
                 $result = mysqli_query($conexao, $sql);

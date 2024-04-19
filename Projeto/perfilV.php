@@ -23,6 +23,10 @@ $cpf = $_SESSION['cpf'];
 $rua = $_SESSION['rua'];
 $bairro = $_SESSION['bairro'];
 $estado = $_SESSION['estado'];
+$telefone = $_SESSION['telefone'];
+$data = $_SESSION['dtnasc'];
+$cidade = $_SESSION['cidade'];
+$cnpj = $_SESSION['cnpj'];
 
 require_once('conecta.php');
 
@@ -45,6 +49,8 @@ $resultado = mysqli_query($conexao, $SQL);
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
     <title>Perfil</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 </head>
 <body>
     <div class="header">
@@ -65,7 +71,7 @@ $resultado = mysqli_query($conexao, $SQL);
             <li class="opi1">Vender
                 <div class="dropdown">
                     <div class="dropdown-content">
-                        <a href="vender.html">Vender Carros</a>
+                        <a href="carros_novos.html">Vender Carros</a>
                         <a href="#">Vender Imovel</a>
                         <a href="CompouAlu_imoveis.html">Alugue seu imóvel</a>
                     </div>
@@ -116,30 +122,31 @@ $resultado = mysqli_query($conexao, $SQL);
                 <i onclick="thomas()" class='bx bxs-pencil tooltip'>
                     <span class="tooltiptext">Editar Dados</span></i>
             </div>
+        <form action="/projetosMh/back-end/Update/alterarDadosVendedor.php" method="post">
             <div class="camp">
                 <label>E-mail:</label>
-                <input type="text" placeholder="<?php echo $email ?>" id="inp"  disabled>
+                <input type="text" name="email" id="inp" value="<?php echo $email ?>""  disabled>
             </div>
                 <div class="camp">
                     <label>Nome Completo:</label>
-                <input type="text" placeholder="<?php echo $nome ?>" id="inp"  disabled>
+                <input type="text" name="nome" id="inp" value="<?php echo $nome ?>""  disabled>
             </div>
             <div class="camp">
                 <label>CPF:</label>
-            <input type="text" placeholder="<?php echo $cpf ?>" id="inp"  disabled>
+            <input type="text" name="cpf" id="inp" value="<?php echo $cpf ?>""  disabled>
+            </div>
+            <div class="camp">
+                <label>CNPJ:</label>
+            <input type="text" name="cnpj" id="inp" value="<?php echo $cnpj ?>""  disabled>
         </div>
-        <div class="camp">
-            <label>CNPJ:</label>
-        <input type="text" placeholder="<?php echo $email ?>" id="inp"  disabled>
-    </div>
                 <div class="camp" >
                     <label>Data de Nascimento:</label>
-                <input type="date" placeholder="<?php echo $email ?>" id="inp" disabled>
+                <input type="text" maxlength="10" name="data_nascimento" placeholder="dd/mm/aaaa" id="inp" value="<?php echo $data ?>"" disabled>
             </div>
             <div class="btunin">
-                <button id="btnuzin">Alterar Dados</button>
+                <button id="btnuzin" type="submit">Alterar Dados</button>
             </div>
-                
+        </form>        
             </div>
             <div class="dados2">
                 <div class="dados-cont">
@@ -148,19 +155,20 @@ $resultado = mysqli_query($conexao, $SQL);
                     <i onclick="ende()" class='bx bxs-pencil tooltip' >
                         <span class="tooltiptext">Editar Endereço</span></i>
                 </div>
+                <form action="/projetosMh/back-end/Update/alterarEnderecoVendedor.php" method="post">
                 <div class="camp">
                     <label>CEP:</label>
-                    <input type="text" placeholder="00000-000"   id="end" disabled>
+                    <input type="text" name="cep" placeholder="00000-000"   id="end" disabled>
                 </div>
                 <div class="camp">
                     <label>Rua:</label>
-                    <input type="text" placeholder="<?php echo $rua ?>"   id="end" disabled>
+                    <input type="text" name="rua" value="<?php echo $rua ?>" id="end" disabled>
                 </div>
                 <div class="campao">
                 <div class="camp">
                     <label>Estado:</label>
-                    <select class="slc-uf" disabled>
-                        <option value="<?php echo $estado ?>" selected disabled>UF</option>
+                    <select class="slc-uf" name="estado" id="slc_uf" disabled>
+                        <option value="<?php echo $estado ?>" selected disabled><?php echo $estado ?></option>
                         <option value="AC">AC</option>
                         <option value="AL">AL</option>
                         <option value="AP">AP</option>
@@ -193,29 +201,39 @@ $resultado = mysqli_query($conexao, $SQL);
                 </div>
                 <div class="camp">
                     <label>Cidade:</label>
-                    <input type="text" placeholder="São Paulo" id="end" disabled>
+                    <input type="text" placeholder="<?php echo $cidade ?>" name="cidade" id="end" disabled>
                 </div>
             </div>
             <div class="camp">
                 <label>Telefone:</label>
-                <input type="text" placeholder="00 00000-0000"   id="end" disabled>
+                <input type="text" placeholder="<?php echo $telefone ?>"   name="telefone" id="end" disabled>
             </div>
                 <div class="btunin">
-                    <button id="btnuzin2">Alterar</button>
+                    <button id="btnuzin2" type="submit">Alterar</button>
                 </div>
-                    
+        </form>        
             </div>
         </div>
     </div>
+
+    <script>
+    $(document).ready(function(){
+        $('#data_nascimento').mask('00/00/0000');
+    });
+</script>
+
+
     <script src="main.js"></script>
     <script>
+
+
    function thomas() {
     var inputs = document.querySelectorAll('[id="inp"]'); // Seleciona todos os elementos com o ID 'end'
 
-inputs.forEach(function(input) {
-    input.disabled = false; // Habilita cada elemento
-    input.style.cursor = "auto"; // Define o cursor como 'auto' para cada elemento
-});
+    inputs.forEach(function(input) {
+        input.disabled = false; // Habilita cada elemento
+        input.style.cursor = "auto"; // Define o cursor como 'auto' para cada elemento
+    });
 
 
     var btn = document.getElementById('btnuzin');
@@ -233,5 +251,7 @@ inputs.forEach(function(input) {
 
     var btn2 = document.getElementById('btnuzin2');
     btn2.style.display = "block";
+    slc_uf.disabled = false;
+    slc_uf.style.cursor = "auto";
 }
     </script>
