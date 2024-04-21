@@ -54,7 +54,7 @@
             <div class="vend-card">
                 <div class="cont-ven">
                     <label for="marcas">Marca:</label>
-                <select class="slc-uf" id="marcas" onchange="mostrarOpcaoEspecifica()">
+                <select class="slc-uf" id="marcas" name="marca" onchange="mostrarOpcaoEspecifica()">
                     <option value="" selected disabled>Selecione uma marca</option>
                     <option value="ACURA">ACURA</option>
                     <option value="ADAMO">ADAMO</option>
@@ -282,16 +282,27 @@
                     <option value="" selected disabled>Escolha um modelo</option>
                 </select>
                 <br>
-                <div class="tog">
-               <input type="text" max="2024" id="ipt_ano" class="toug" maxlength="4" placeholder="Ano do modelo">
-               <input type="text" max="2024" id="ipt_anoF" class="toug" maxlength="4" placeholder="Ano de fabricação">
-            </div>
+                <label>Nome:</label>
+               <input type="text" max="2024" id="ipt_ano" maxlength="4" placeholder="Ano do modelo">
+            
             <br>
-            <label>Versão:</label>
+            <label>Tipo:</label>
             <input type="text" id="ipt_vers" placeholder="Versão">
             <br>
             <label>Cor:</label>
             <input type="text" id="ipt_cor" placeholder="Cor">
+            <br>
+            <label>Carroceria:</label>
+            <input type="text" id="ipt_cor" placeholder="Quantos Kilometros andados">
+            <br>
+            <label>Combustivel:</label>
+            <input type="text" id="ipt_cor" placeholder="Quantos Kilometros andados">
+            <br>
+            <label>Final da Placa:</label>
+            <input type="text" id="ipt_cor" placeholder="Quantos Kilometros andados">
+            <br>
+            <label>Troca:</label>
+            <input type="text" id="ipt_cor" placeholder="Sim ou Não?">
             <br>
             <label>Km:</label>
             <input type="text" id="ipt_cor" placeholder="Quantos Kilometros andados">
@@ -299,7 +310,11 @@
             <label>Preço:</label>
             <input type="text" id="ipt_cor" placeholder="Preço">
             <br>
+            <label>Especificações:</label>
+            <br>
             <label>Descrição:</label>
+            <input type="text" id="ipt_cor" placeholder="Quantos Kilometros andados">
+            
             <textarea name="" id="" cols="30" rows="10" placeholder="Escreva uma breve descrição"></textarea>
                 </div>
                 <div class="image-ven">
@@ -374,3 +389,5 @@
     </script>
 </body>
 </html>
+
+

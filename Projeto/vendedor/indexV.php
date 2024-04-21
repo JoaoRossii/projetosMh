@@ -1,3 +1,43 @@
+<?php 
+
+$servername = "localhost";
+$username = "root";
+$password = "Sk8long2077#";
+$dbname = "getninjas";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Erro na conexão com o banco de dados: " . $conn->connect_error);
+}
+
+$sql = "SELECT nome, tipo, email, especificações, preco, km, carroceria FROM carro join cadastrovendedor on fkVendor = idVendor where id = 1"; /* query utilizada para buscar dados no banco para exibir em um card */
+$result = $conn->query($sql);
+$resulte = $conn->query($sql);
+
+session_start();
+$id = $_SESSION['id'];
+$nome = $_SESSION['nome'];
+$email = $_SESSION['email'];
+$cpf = $_SESSION['cpf'];
+$rua = $_SESSION['rua'];
+$bairro = $_SESSION['bairro'];
+$estado = $_SESSION['estado'];
+
+require_once('conecta.php');
+
+$SQL = "select * FROM cadastrousuario where email='" . $email . "'";
+$resultado = mysqli_query($conexao, $SQL);
+
+// while ($dados = mysqli_fetch_array($resultado)) {
+//     $_SESSION['nome'] = $dados['nm_projeto'];
+// 	$_SESSION['senha'] = $dados['senha'];
+// 	$_SESSION['email'] = $dados['email'];
+//     $_SESSION['perfil'] = $dados['perfil'];
+// }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,27 +64,31 @@
                 <a href="index.html" style="text-decoration: none; color: var(--font-color); font-size: 25px;">Logo</a>
             </div>
             <div class="op">
-                <li class="opi1">Comprar
+                <li class="opi1">Ver Anuncios
                     <div class="dropdown">
                         <div class="dropdown-content">
-                            <a href="carros_novos.html">Carros novos</a>
-                            <a href="#">Carros usados</a>
-                            <a href="CompouAlu_imoveis.html">Comprar Imóveis</a>
+                            <a href="#">Meus Anuncios</a>
+                            <a href="#">Comprar Imóveis</a>
                             <a href="#">Alugar Imóveis</a>
                         </div>
                     </div>
                 </li>
-                <li class="opi1">Vender
+                <li class="opi1"> Seu Carro
                     <div class="dropdown">
                         <div class="dropdown-content">
-                            <a href="vender.html">Vender Carros</a>
-                            <a href="#">Vender Imovel</a>
-                            <a href="CompouAlu_imoveis.html">Alugue seu imóvel</a>
+                            <a href="vender.php">Inserir Imovel</a>
+                            <a href="venderEdit.php">Editar Imovel</a>
                         </div>
                     </div>
                 </li>
-                <li>Oficios</li>
-                <li>Suporte</li>
+                <li class="opi1"> Seu Imovel
+                    <div class="dropdown">
+                        <div class="dropdown-content">
+                            <a href="venderImo.php">Inserir Imovel</a>>
+                            <a href="venderImoEdit">Editar Imovel</a>
+                        </div>
+                    </div>
+                </li>
             </div>
             <div class="ot">
                 <i class='bx bx-moon night'></i>
@@ -52,10 +96,8 @@
                 <li class="opi1">
                     <div class="dropdown"><i class='bx bx-user-circle'></i>
                         <div class="dropdown-content2">
-                            <a href="anuncios.html"><i class='bx bx-edit' ></i>Meus Anuncios</a>
-                            <a href="perfil.html"><i class='bx bx-user'></i>Minha conta</a>
-                            <a href="#"><i class='bx bx-dollar-circle'></i>Saldos</a>
-                            <a href="#"><i class='bx bx-log-out'></i>Sair</a>
+                            <a href="anuncios.html"><i class='bx bx-edit'></i>Meus Anuncios</a>
+                            <a href="perfil.php"><i class='bx bx-user'></i>Minha conta</a>
                         </div>
                     </div>
                 </li>
@@ -76,7 +118,7 @@
                         </div>
                         <div class="bar">
                             <i class='bx bx-search' ></i>
-                            <input type="text" placeholder="Digite uma característica..." class="ipt1">
+                            <input type="text" placeholder="Digite um lugar" class="ipt1">
                             <button>Buscar</button>
                         </div>
                     </div>

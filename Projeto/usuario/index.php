@@ -69,12 +69,12 @@ $resultado = mysqli_query($conexao, $SQL);
                         <div class="dropdown-content">
                             <a href="carros_novos.php">Carros novos</a>
                             <a href="#">Carros usados</a>
-                            <a href="CompouAlu_imoveis.php">Comprar Imóveis</a>
+                            <a href="CompouAlu_imoveis.php                                                                                                              ">Comprar Imóveis</a>
                             <a href="#">Alugar Imóveis</a>
                         </div>
                     </div>
                 </li>
-                <li class="opi1">Vender
+                <li class="opi1">Veiculos 
                     <div class="dropdown">
                         <div class="dropdown-content">
                             <a href="carros_novos.php">Vender Carros</a>
@@ -83,8 +83,7 @@ $resultado = mysqli_query($conexao, $SQL);
                         </div>
                     </div>
                 </li>
-                <li>Oficios</li>
-                <li>Suporte</li>
+                <li>Imoveis</li>
             </div>
             <div class="ot">
                 <i class='bx bx-moon night'></i>
