@@ -49,13 +49,13 @@ if (isset($_POST['user'])) {
                     $_SESSION['bairro'] = $dados['bairro'];
                     $_SESSION['estado'] = $dados['estado'];
                     $_SESSION['telefone'] = $dados['telefone'];
-                    $_SESSION['dtnasc'] = $dados['dtnasc'];
+                    $_SESSION['dtnasc'] = $dados['dtNasc'];
                     $_SESSION['cidade'] = $dados['cidade'];
 				} 
                 
             echo "
             <script>
-            window.location.href='../../Projeto/index.php';
+            window.location.href='../../Projeto/vendedor/indexV.php';
             </script>";
             }
         }
@@ -77,7 +77,7 @@ if (isset($_POST['user'])) {
                     $_SESSION['bairro'] = $dados['bairro'];
                     $_SESSION['estado'] = $dados['estado'];
                     $_SESSION['telefone'] = $dados['telefone'];
-                    $_SESSION['dtnasc'] = $dados['dtnasc'];
+                    $_SESSION['dtnasc'] = $dados['dtNasc'];
                     $_SESSION['cidade'] = $dados['cidade'];
 				}
             $sql1 = "select FROM projetos where email='" . $email . "'";
@@ -87,7 +87,7 @@ if (isset($_POST['user'])) {
                 }
             echo "
             <script>
-            window.location.href='../../Projeto/index.php';
+            window.location.href='../../Projeto/usuario/index.php';
             </script>";
         }
     }
