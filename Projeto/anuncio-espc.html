@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Vender Imoveis</title>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: var(--font-color); font-size: 25px;">Logo</a>
+        </div>
+        <div class="op">
+            <li class="opi1">Comprar
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <a href="carros_novos.html">Carros novos</a>
+                        <a href="#">Carros usados</a>
+                        <a href="CompouAlu_imoveis.html">Comprar Imóveis</a>
+                        <a href="#">Alugar Imóveis</a>
+                    </div>
+                </div>
+            </li>
+            <li class="opi1">Vender
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <a href="vender.html">Vender Carros</a>
+                        <a href="#">Vender Imovel</a>
+                        <a href="CompouAlu_imoveis.html">Alugue seu imóvel</a>
+                    </div>
+                </div>
+            </li>
+            <li>Oficios</li>
+            <li>Suporte</li>
+        </div>
+        <div class="ot">
+            <i class='bx bx-moon night'></i>
+            <i class='bx bx-heart'></i>
+            <li class="opi1" style="list-style: none;">
+                <div class="dropdown"><i class='bx bx-user-circle'></i>
+                    <div class="dropdown-content2">
+                        <a href="anuncios.html"><i class='bx bx-edit' ></i>Meus Anuncios</a>
+                        <a href="perfil.html"><i class='bx bx-user'></i>Minha conta</a>
+                        <a href="#"><i class='bx bx-dollar-circle'></i>Saldos</a>
+                        <a href="#"><i class='bx bx-log-out'></i>Sair</a>
+                    </div>
+                </div>
+            </li>
+        </div>
+        </div><div class="main-esp">
+            <div class="main-cont1">
+                <div class="cont-carrou">
+            <div class="carousel-container2">
+                <div class="carousel2">
+                    <img src="https://projetaronline.com/wp-content/uploads/2022/11/casa-pequena-planta-baixa-0.png" alt="Imagem 1">
+                    <img src="https://www.fashionbubbles.com/wp-content/uploads/2024/01/fachadas-de-casas-modernas-luxuosas-destaque.jpg" alt="Imagem 2">
+                    <img src="https://casaecampo.com.br/wp-content/uploads/2023/09/f0c6e919-9122-4e5c-a077-acf511924ab8.jpeg" alt="Imagem 3">
+                </div>
+                <button class="prev2" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="next2" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+        </div>
+            <!-- Miniaturas -->
+            <div class="mino">
+            <div class="thumbnails">
+                <img class="thumbnail2" src="https://projetaronline.com/wp-content/uploads/2022/11/casa-pequena-planta-baixa-0.png" onclick="currentSlide(1)" alt="Miniatura 1">
+                <img class="thumbnail2" src="https://www.fashionbubbles.com/wp-content/uploads/2024/01/fachadas-de-casas-modernas-luxuosas-destaque.jpg" onclick="currentSlide(2)" alt="Miniatura 2">
+                <img class="thumbnail2" src="https://casaecampo.com.br/wp-content/uploads/2023/09/f0c6e919-9122-4e5c-a077-acf511924ab8.jpeg" onclick="currentSlide(3)" alt="Miniatura 3">
+            </div>
+        </div>
+    </div>
+    <div class="prod-descrip">
+        <div class="tt">
+            <div class="titi">
+                <h2>Titulo do Anuncio</h2>
+            </div>
+            <div class="love"><i class='bx bx-heart'></i>
+            </div>
+        </div>
+        <div class="desc-prod">
+            
+        </div>
+    </div>
+    </div>
+        <script>
+            let slideIndex = 1;
+        
+            function showSlide(index) {
+                const slides = document.querySelectorAll('.carousel2 img');
+                if (index > slides.length) {
+                    slideIndex = 1;
+                }
+                if (index < 1) {
+                    slideIndex = slides.length;
+                }
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = 'none';
+                }
+                slides[slideIndex - 1].style.display = 'block';
+            }
+        
+            showSlide(slideIndex);
+        
+            function moveSlide(n) {
+                showSlide(slideIndex += n);
+            }
+        
+            // Atualizar slide ao clicar em miniatura
+            function currentSlide(n) {
+                showSlide(slideIndex = n);
+            }
+        </script>
