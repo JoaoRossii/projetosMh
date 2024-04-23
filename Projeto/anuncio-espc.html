@@ -54,9 +54,9 @@
                 <div class="cont-carrou">
             <div class="carousel-container2">
                 <div class="carousel2">
-                    <img src="https://projetaronline.com/wp-content/uploads/2022/11/casa-pequena-planta-baixa-0.png" alt="Imagem 1">
-                    <img src="https://www.fashionbubbles.com/wp-content/uploads/2024/01/fachadas-de-casas-modernas-luxuosas-destaque.jpg" alt="Imagem 2">
-                    <img src="https://casaecampo.com.br/wp-content/uploads/2023/09/f0c6e919-9122-4e5c-a077-acf511924ab8.jpeg" alt="Imagem 3">
+                    <img src="https://cdn.autopapo.com.br/box/uploads/2021/09/14025731/fiat-mobi-trekking-2021-branco-de-frente-foto-alexandre-carneiro-autopapo-1920x1280.jpg" alt="Imagem 1">
+                    <img src="https://www.carrobonito.com/wp-content/uploads/2023/07/fiat-mobi-trekking-traseira.jpg" alt="Imagem 2">
+                    <img src="https://autoentusiastas.com.br/ae/wp-content/uploads/2017/03/Fiat-Mobi-Drive-GSR-107.jpg" alt="Imagem 3">
                 </div>
                 <button class="prev2" onclick="moveSlide(-1)">&#10094;</button>
                 <button class="next2" onclick="moveSlide(1)">&#10095;</button>
@@ -65,12 +65,13 @@
             <!-- Miniaturas -->
             <div class="mino">
             <div class="thumbnails">
-                <img class="thumbnail2" src="https://projetaronline.com/wp-content/uploads/2022/11/casa-pequena-planta-baixa-0.png" onclick="currentSlide(1)" alt="Miniatura 1">
-                <img class="thumbnail2" src="https://www.fashionbubbles.com/wp-content/uploads/2024/01/fachadas-de-casas-modernas-luxuosas-destaque.jpg" onclick="currentSlide(2)" alt="Miniatura 2">
-                <img class="thumbnail2" src="https://casaecampo.com.br/wp-content/uploads/2023/09/f0c6e919-9122-4e5c-a077-acf511924ab8.jpeg" onclick="currentSlide(3)" alt="Miniatura 3">
+                <img class="thumbnail2" src="https://cdn.autopapo.com.br/box/uploads/2021/09/14025731/fiat-mobi-trekking-2021-branco-de-frente-foto-alexandre-carneiro-autopapo-1920x1280.jpg" onclick="currentSlide(1)" alt="Miniatura 1">
+                <img class="thumbnail2" src="https://www.carrobonito.com/wp-content/uploads/2023/07/fiat-mobi-trekking-traseira.jpg" onclick="currentSlide(2)" alt="Miniatura 2">
+                <img class="thumbnail2" src="https://autoentusiastas.com.br/ae/wp-content/uploads/2017/03/Fiat-Mobi-Drive-GSR-107.jpg" onclick="currentSlide(3)" alt="Miniatura 3">
             </div>
         </div>
     </div>
+    <div class="main-desc-prod">
     <div class="prod-descrip">
         <div class="tt">
             <div class="titi">
@@ -80,10 +81,48 @@
             </div>
         </div>
         <div class="desc-prod">
-            
+            <div class="car-info">
+                <div class="col1">
+                    <label>Marca:</label>
+                    <div class="anw-car">Fiat</div>
+                    <label>Ano:</label>
+                    <div class="anw-car">2014</div>
+                </div>
+                <div class="col1">
+                    <label>Combustivel:</label>
+                    <div class="anw-car">Gasolina</div>
+                    <label>Carroceria:</label>
+                    <div class="anw-car">Nao sei</div>
+                </div>
+                <div class="col1">
+                    <label>Km:</label>
+                    <div class="anw-car">120.000</div>
+                    <label>Cor:</label>
+                    <div class="anw-car">Branco</div>
+                </div>
+                <div class="col1">
+                    <label>Troca:</label>
+                    <div class="anw-car">Sim</div>
+                    <label>Rodizio:</label>
+                    <div class="anw-car">Quarta-feira</div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+    <div class="prec-car">
+        <div class="precinho">
+            <h2>R$ 35.000</h2>
+        </div>
+        <div class="contact">
+            <label>Descrição</label>
+            <div class="cont-desc-car">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora odio, in quibusdam assumenda quasi culpa asperiores iste architecto enim corporis voluptas vitae expedita veniam dolores maxime sequi quos consequatur soluta.</p>
+            </div>
         </div>
     </div>
     </div>
+    
         <script>
             let slideIndex = 1;
         
@@ -107,7 +146,6 @@
                 showSlide(slideIndex += n);
             }
         
-            // Atualizar slide ao clicar em miniatura
             function currentSlide(n) {
                 showSlide(slideIndex = n);
             }

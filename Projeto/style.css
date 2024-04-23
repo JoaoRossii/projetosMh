@@ -1391,7 +1391,8 @@ body{
       .carousel2 img {
         width: 650px;
         height: 650px;
-        
+        object-fit: cover;
+        cursor: pointer;
       }
       
       .prev2,
@@ -1457,11 +1458,11 @@ body{
         justify-content: right;
     }
     .prod-descrip{
-        width: 35%;
-        height: 85vh;
         position: relative;
+        border-radius: 6px;
         top: 30px;
         display: flex;
+        margin-left: 10px;
         flex-direction: column;
         align-items: center;
         background: var(--header-color);
@@ -1481,7 +1482,7 @@ body{
         align-items: center;
     }
     .titi h2{
-        margin-left: 10px;
+        margin-left: 20px;
         font-size: 30px;
         color: var(--font-color);
     }
@@ -1498,7 +1499,148 @@ body{
         cursor: pointer;
     }
     .desc-prod{
-        width: 90%;
+        width: 95%;
         height: 88%;
-        background: #009fb7;
     }
+    .car-info{
+        width: 100%;
+        height: 70%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .descrip-car{
+        width: 100%;
+        height: 30%;
+        background: #111111;
+    }
+    .col1{
+        width: 20%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .col1 label{
+        font-size: 20px;
+        margin: 10px;
+    }
+    .anw-car{
+        padding: 0px 15px 0px 15px;
+        margin-bottom: 50px;
+        border-radius: 10px;
+        height: 40px;
+        background: var(--background-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .main-desc-prod{
+        position: relative;
+        top: 20px;
+        width: 800px;
+        height: 85vh;
+    }
+    .prec-car{
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        width: 98.5%;
+        height: 300px;
+        background: var(--header-color);
+        box-shadow: 0 0 20px 10px #00000033;
+        margin-left: 10px;
+        border-radius: 6px;
+    }
+    .precinho{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid var(--line-color);
+    }
+    .precinho h2{
+        font-size: 50px;
+        margin-left: 20px;
+    }
+    .contact{
+        width: 100%;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .cont-desc-car{
+        width: 90%;
+        height: 150px;
+        background: var(--background-color);
+        border-radius: 10px;
+    }
+    .contact label{
+        font-size: 20px;
+    }
+    .cont-desc-car p{
+        text-align: justify;
+        padding: 10px;
+        color: var(--font-color);
+    }
+    .card-insert{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 30px;
+    }
+    .cardinho-new{
+        width: 600px;
+        height: 700px;
+        background: var(--header-color);
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 0 20px 10px #00000026;
+        align-items: center;
+    }
+    .cardinho-new label{
+        font-size: 18px;
+    }
+    .cardinho-new .ipt_norm{
+        width: 90%;
+        height: 45px;
+        border-radius: 10px;
+        outline: none;
+        background: var(--background-color);
+        border: none;
+
+    }
+    .cardinho-new textarea{
+        width: 90%;
+        resize: none;
+        background: var(--background-color);
+        border: none;
+        border-radius: 10px;
+        outline: none;
+    }
+    .cardinho-new h2{
+        font-size: 30px;
+        color: var(--font-color);
+    }
+    .cardinho-new button{
+        width: 250px;
+        position: absolute;
+        top: 72%;
+        height: 50px;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        background: var(--main-color);
+        cursor: pointer;
+    }
+    .cardinho-new button:hover{
+        background: var(--second-color);
+        transition: 0.5s;
+    }
+    
