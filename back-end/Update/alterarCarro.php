@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_POST['nomeCarro'])) {
+if (isset($_POST['tipo'])) {
 
     $nomeCarro = $_POST['nomeCarro'];
     $modeloCarro = $_POST['modeloCarro'];

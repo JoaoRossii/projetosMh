@@ -84,7 +84,7 @@ $resultado = mysqli_query($conexao, $SQL);
                 <li class="opi1"> Seu Imovel
                     <div class="dropdown">
                         <div class="dropdown-content">
-                            <a href="venderImo.php">Inserir Imovel</a>>
+                            <a href="vendeImo.php">Inserir Imovel</a>>
                             <a href="venderImoEdit">Editar Imovel</a>
                         </div>
                     </div>

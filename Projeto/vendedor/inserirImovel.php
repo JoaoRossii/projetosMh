@@ -1,5 +1,36 @@
 <?php
 
+
+$servername = "localhost";
+$username = "root";
+$password = "Sk8long2077#";
+$dbname = "getninjas";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Erro na conexão com o banco de dados: " . $conn->connect_error);
+}
+
+$sql = "SELECT nome, tipo, email, especificações, preco, km, carroceria FROM carro join cadastrovendedor on fkVendor = idVendor where id = 1"; /* query utilizada para buscar dados no banco para exibir em um card */
+$result = $conn->query($sql);
+$resulte = $conn->query($sql);
+
+session_start();
+$id = $_SESSION['id'];
+$nome = $_SESSION['nome'];
+$email = $_SESSION['email'];
+$cpf = $_SESSION['cpf'];
+$rua = $_SESSION['rua'];
+$bairro = $_SESSION['bairro'];
+$estado = $_SESSION['estado'];
+
+require_once('conecta.php');
+
+$SQL = "select * FROM cadastrousuario where email='" . $email . "'";
+$resultado = mysqli_query($conexao, $SQL);
+
+
 $conexao=mysqli_connect("localhost", "root", "Sk8long2077#", "getninjas");
 if(!$conexao){
     echo "erro-bd";
@@ -24,23 +55,20 @@ if (isset($_POST['tipo'])) {
     $city = $_POST['cidade'];
     $preco = $_POST['preco'];
     require('conecta.php');
-    
-    $gravar = "UPDATE imovel set tipo = '$tipo', condominio = '$condominio', tamanho = '$km', quartos = '$quartos', 
-    banheiro = '$banheiro', vagas = '$vagas', trans_publi = '$TPubli', mobilia = '$mobilia', andar = '$andar', 
-    endereçoImovel = '$lograd', bairroImovel = '$bairro', estadoImovel = '$estado', cepImovel = '$cep', cidadeImovel = '$city',
-    preco = '$preco'
-    WHERE
-    id = '1'";
+
+    $gravar = "INSERT INTO imovel (tipo, condominio, tamanho, quartos, banheiros, vagas, trans_publi, mobilia, andar, fkVendor, endereçoImovel, bairroImovel, estadoImovel, cepImovel, cidadeImovel, preco)
+    VALUE 
+    ('$tipo','$condominio','$km','$quartos','$banheiro','$vagas','$TPubli','$mobilia','$andar', 1,'$lograd','$bairro','$estado','$cep','$city','$preco')";
     $resultado = mysqli_query($conexao, $gravar);
     if ($resultado == false) {
         echo 
-        "<script> window.alert('Problemas ao Alterar.');
-        window.location.href='alterarImovel.html'
+        "<script> window.alert('Problemas ao Inserir.');
+        window.location.href='inserirImovel.html'
         </script>";
     } else {
         echo 
-        "<script> window.alert('Alterado com sucesso.');
-        window.location.href='alterarImovel.html'
+        "<script> window.alert('Inserido com sucesso.');
+        window.location.href='inserirImovel.html'
         </script>";
     }
 
