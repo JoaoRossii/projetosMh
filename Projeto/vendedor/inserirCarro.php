@@ -1,8 +1,16 @@
 <?php 
 session_start();
+$id = $_SESSION['id'];
+$nome = $_SESSION['nome'];
+$email = $_SESSION['email'];
+$cpf = $_SESSION['cpf'];
+$rua = $_SESSION['rua'];
+$bairro = $_SESSION['bairro'];
+$estado = $_SESSION['estado'];
 
 // Conexão com o banco de dados usando MySQLi
 require_once('conecta.php');
+include_once './conexao.php';
 
 // Verifica se os dados do formulário foram enviados
 if (isset($_POST['nomeCarro'])) {
@@ -22,33 +30,39 @@ if (isset($_POST['nomeCarro'])) {
     $desc = $_POST['descr'];
 
     // Diretório para salvar as imagens
-    $diretorio = "images/$id/";
+    $diretorio = "imagensCarro/$id/";
 
-    // Criar o diretório se ele não existir
-    if (!file_exists($diretorio)) {
-        mkdir($diretorio, 0755, true);
-    }
+            // Criar o diretório
+            mkdir($diretorio, 0755);
 
-    // Receber os arquivos do formulário
-    $arquivos = $_FILES['imagens'];
+            // Receber os arquivos do formulário
+            $arquivo = $_FILES['imagens'];
+            //var_dump($arquivo);
 
-    // Iterar sobre os arquivos e movê-los para o diretório
-    foreach ($arquivos['tmp_name'] as $key => $tmp_name) {
-        $nome_arquivo = $arquivos['name'][$key];
-        $destino = $diretorio . $nome_arquivo;
-        if (move_uploaded_file($tmp_name, $destino)) {
-            // Inserir o nome do arquivo na tabela 'imagemcarro'
-            $query_imagem = "INSERT INTO imagemcarro (nome_imagem, fkVendor) VALUES ('$nome_arquivo', $id)";
-            $resultado_imagem = mysqli_query($conexao, $query_imagem);
-            if ($resultado_imagem) {
-                $_SESSION['msg'] = "<p style='color: green;'>Imagem cadastrada com sucesso!</p>";
-            } else {
-                $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Imagem não cadastrada com sucesso!</p>";
+            // Ler o array de arquivos
+            for ($cont = 0; $cont < count($arquivo['name']); $cont++) {
+
+                // Receber nome da imagem
+                $nome_arquivo = $arquivo['name'][$cont];
+
+                // Criar o endereço de destino das imagens
+                $destino = $diretorio . $arquivo['name'][$cont];
+
+                // Acessa o IF quando realizar o upload corretamente
+                if (move_uploaded_file($arquivo['tmp_name'][$cont], $destino)) {
+                    $query_imagem = "INSERT INTO imagemcarro (nome_imagem, fkVendor) VALUES (:nome_imagem, $id)";
+                    $cad_imagem = $conn->prepare($query_imagem);
+                    $cad_imagem->bindParam(':nome_imagem', $nome_arquivo);
+
+                    if ($cad_imagem->execute()) {
+                        $_SESSION['msg'] = "<p style='color: green;'>Imagem cadastrado com sucesso!</p>";
+                    } else {
+                        $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Imagem não cadastrada com sucesso!</p>";
+                    }
+                } else {
+                    $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Imagem não cadastrada com sucesso!</p>";
+                }
             }
-        } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Imagem não cadastrada com sucesso!</p>";
-        }
-    }
 
     // Agora que as imagens foram enviadas, você pode inserir os dados do carro no banco de dados
     $gravar = "INSERT INTO carro (nome, tipo, especificações, carroceria, combustivel, finalplaca, cor, troca, descricao, km, fkVendor, preco, marca) 
