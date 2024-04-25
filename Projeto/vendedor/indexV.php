@@ -76,15 +76,15 @@ $resultado = mysqli_query($conexao, $SQL);
                 <li class="opi1"> Seu Carro
                     <div class="dropdown">
                         <div class="dropdown-content">
-                            <a href="vender.php">Inserir Imovel</a>
-                            <a href="venderEdit.php">Editar Imovel</a>
+                            <a href="vender.php">Inserir Carro</a>
+                            <a href="venderEdit.php">Editar Carro</a>
                         </div>
                     </div>
                 </li>
                 <li class="opi1"> Seu Imovel
                     <div class="dropdown">
                         <div class="dropdown-content">
-                            <a href="vendeImo.php">Inserir Imovel</a>>
+                            <a href="vendeImo.php">Inserir Imovel</a>
                             <a href="venderImoEdit">Editar Imovel</a>
                         </div>
                     </div>

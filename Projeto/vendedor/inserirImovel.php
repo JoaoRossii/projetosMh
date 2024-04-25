@@ -24,7 +24,7 @@ $cpf = $_SESSION['cpf'];
 $rua = $_SESSION['rua'];
 $bairro = $_SESSION['bairro'];
 $estado = $_SESSION['estado'];
-
+include_once './conexao.php';
 require_once('conecta.php');
 
 $SQL = "select * FROM cadastrousuario where email='" . $email . "'";
@@ -56,6 +56,40 @@ if (isset($_POST['tipo'])) {
     $preco = $_POST['preco'];
     require('conecta.php');
 
+    $diretorio = "imagensImovel/$id/";
+
+            // Criar o diretório
+            mkdir($diretorio, 0755);
+
+            // Receber os arquivos do formulário
+            $arquivo = $_FILES['imagens'];
+            //var_dump($arquivo);
+
+            // Ler o array de arquivos
+            for ($cont = 0; $cont < count($arquivo['name']); $cont++) {
+
+                // Receber nome da imagem
+                $nome_arquivo = $arquivo['name'][$cont];
+
+                // Criar o endereço de destino das imagens
+                $destino = $diretorio . $arquivo['name'][$cont];
+
+                // Acessa o IF quando realizar o upload corretamente
+                if (move_uploaded_file($arquivo['tmp_name'][$cont], $destino)) {
+                    $query_imagem = "INSERT INTO imagemimovel (nome_imagem, fkVendor) VALUES (:nome_imagem, $id)";
+                    $cad_imagem = $conn->prepare($query_imagem);
+                    $cad_imagem->bindParam(':nome_imagem', $nome_arquivo);
+
+                    if ($cad_imagem->execute()) {
+                        $_SESSION['msg'] = "<p style='color: green;'>Imagem cadastrado com sucesso!</p>";
+                    } else {
+                        $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Imagem não cadastrada com sucesso!</p>";
+                    }
+                } else {
+                    $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Imagem não cadastrada com sucesso!</p>";
+                }
+            }
+
     $gravar = "INSERT INTO imovel (tipo, condominio, tamanho, quartos, banheiros, vagas, trans_publi, mobilia, andar, fkVendor, endereçoImovel, bairroImovel, estadoImovel, cepImovel, cidadeImovel, preco)
     VALUE 
     ('$tipo','$condominio','$km','$quartos','$banheiro','$vagas','$TPubli','$mobilia','$andar', 1,'$lograd','$bairro','$estado','$cep','$city','$preco')";
@@ -70,40 +104,6 @@ if (isset($_POST['tipo'])) {
         "<script> window.alert('Inserido com sucesso.');
         window.location.href='inserirImovel.html'
         </script>";
-    }
-
-    $diretorio = "images/$usuario_id/";
-
-    // Criar o diretório
-    mkdir($diretorio, 0755);
-
-    // Receber os arquivos do formulário
-    $arquivo = $_FILES['imagens'];
-    //var_dump($arquivo);
-
-    // Ler o array de arquivos
-    for ($cont = 0; $cont < count($arquivo['name']); $cont++) {
-
-        // Receber nome da imagem
-        $nome_arquivo = $arquivo['name'][$cont];
-
-        // Criar o endereço de destino das imagens
-        $destino = $diretorio . $arquivo['name'][$cont];
-
-        // Acessa o IF quando realizar o upload corretamente
-        if (move_uploaded_file($arquivo['tmp_name'][$cont], $destino)) {
-            $query_imagem = "UPDATE INTO carro (nome_imagem VALUES (:nome_imagem) WHERE fk_vendedor LIKE = 1";
-            $cad_imagem = $conn->prepare($query_imagem);
-            $cad_imagem->bindParam(':nome_imagem', $nome_arquivo);
-
-            if ($cad_imagem->execute()) {
-                $_SESSION['msg'] = "<p style='color: green;'>Imagem cadastrado com sucesso!</p>";
-            } else {
-                $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Imagem não cadastrada com sucesso!</p>";
-            }
-        } else {
-            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Imagem não cadastrada com sucesso!</p>";
-        }
     }
 }
 

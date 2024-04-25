@@ -86,7 +86,7 @@ $resultado = mysqli_query($conexao, $SQL);
             <div class="vend-card">
                 <div class="cont-ven">
             <label>Tipo:</label>
-            <form action="inserirImovel.php" method="post">
+            <form action="inserirImovel.php" method="post" enctype="multipart/form-data">
             <select class="slc-tipo" name="tipo" id="slcTipo">
                 <option value="Apartamento">Apartamento</option>
                 <option value="Casa">Casa</option>

@@ -1,4 +1,5 @@
-<?php
+
+<?php 
 
 $servername = "localhost";
 $username = "root";
@@ -28,11 +29,7 @@ require_once('conecta.php');
 
 $SQL = "select * FROM cadastrousuario where email='" . $email . "'";
 $resultado = mysqli_query($conexao, $SQL);
-
-$dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +38,7 @@ $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <title>Perfil</title>
+    <title>Vender Imoveis</title>
 </head>
 <body>
     <div class="header">
@@ -77,7 +74,7 @@ $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
             <li class="opi1" style="list-style: none;">
                 <div class="dropdown"><i class='bx bx-user-circle'></i>
                     <div class="dropdown-content2">
-                        <a href="anuncios.html"><i class='bx bx-edit' ></i>Meus Anuncios</a>
+                        <a href="anuncios.html"><i class='bx bx-edit'></i>Meus Anuncios</a>
                         <a href="perfil.html"><i class='bx bx-user'></i>Minha conta</a>
                         <a href="#"><i class='bx bx-dollar-circle'></i>Saldos</a>
                         <a href="#"><i class='bx bx-log-out'></i>Sair</a>
@@ -87,60 +84,77 @@ $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         </div>
         </div>
         <div class="main-vend">
-            <div class="vend-cardC">
+            <div class="vend-card">
                 <div class="cont-ven">
-                <form action="inserirCarro.php" method="post" enctype="multipart/form-data">
-                    <label for="marcas">Marca:</label>
-                    <input type="text" id="ipt_cor" name="marca" placeholder="Digite a marca do seu carro">
-                <br>
-                <label>Nome:</label>
-               <input type="text" max="2024" id="ipt_ano" name="nomeCarro" maxlength="4" placeholder="Ano do modelo">
-            
-            <br>
             <label>Tipo:</label>
-            <input type="text" id="ipt_cor" name="tipo" placeholder="Versão">
+            <form action="inserirImovel.php" method="post" enctype="multipart/form-data">
+            <select class="slc-tipo" name="tipo" id="slcTipo">
+                <option value="Apartamento">Apartamento</option>
+                <option value="Casa">Casa</option>
+                <option value="Mansão">Mansão</option>
+                <option value="Chacara">Chacara</option>
+                <option value="Sitio">Sitio</option>
+            </select>
             <br>
-            <label>Cor:</label>
-            <input type="text" id="ipt_cor" name="cor" placeholder="Cor">
+            <label>Condominio:</label>
+            <select class="slc-tipo" name="cond" id="slcTipo">
+                <option value="sim">Sim</option>
+                <option value="nao">Nao</option>
+            </select>
             <br>
-            <label>Carroceria:</label>
-            <input type="text" id="ipt_cor" name="carroc" placeholder="Quantos Kilometros andados">
+            <label>Tamanho em M² :</label>
+            <input type="text" id="iptM" name="tam" placeholder="Digite o Tamanho">
             <br>
-            <label>Combustivel:</label>
-            <input type="text" id="ipt_cor" name="combu" placeholder="Quantos Kilometros andados">
+            <label>Quartos:</label>
+            <input type="text" id="ipt_cor" name="quart" placeholder="Digite o numero de Quartos">
             <br>
-</div>
-<div class="cont-ven">
-            <label>Final da Placa:</label>
-            <input type="text" id="ipt_cor" name="finpla" placeholder="Quantos Kilometros andados">
+            <label>Banheiros:</label>
+            <input type="text" id="ipt_cor" name="ban" placeholder="Digite o numero de banheiros">
             <br>
-            <label>Troca:</label>
-            <input type="text" id="ipt_cor" name="troc" placeholder="Sim ou Não?">
+            <label>Vagas:</label>
+            <input type="text" id="ipt_cor" name="vagas" placeholder="Digite o numero de vagas">
             <br>
-            <label>Km:</label>
-            <input type="text" id="ipt_cor" name="km" placeholder="Quantos Kilometros andados">
+            <label>Perto de Transporte Publico:</label>
+            <input type="text" id="ipt_cor" name="tpubli" placeholder="Sim ou Não">
             <br>
-            <label>Preço:</label>
-            <input type="text" id="ipt_cor" name="preco" placeholder="Preço">
+            <label>Mobilia:</label>
+            <input type="text" id="ipt_cor" name="mob" placeholder="Sim ou Não">
             <br>
-            <label>Especificações:</label>
-            <input type="text" id="ipt_cor" name="espec" placeholder="Quantos Kilometros andados">
-            <br>
-            <label>Descrição:</label>
-            
-            <input type="text" id="ipt_cor" cols="30" rows="10" name="descr" placeholder="Escreva uma breve descrição"></textarea>
                 </div>
+                <div class="cont-ven">
+            <label>Andar:</label>
+            <input type="text" id="ipt_cor" name="and" placeholder="Qual ou quantos andares possui">
+            <br>
+            <label>Logradouro:</label>
+            <input type="text" id="ipt_cor" name="lograd" placeholder="Digite sua Rua, Av ...">
+            <br>
+            <label>Bairro:</label>
+            <input type="text" id="ipt_cor" name="bairro" placeholder="Digite seu Bairro">
+            <br>
+            <label>Estado:</label>
+            <input type="text" id="ipt_cor" name="estado" placeholder="Digite seu estado">
+            <br>
+            <label>CEP:</label>
+            <input type="text" id="ipt_cor" name="cep" placeholder="00000-000">
+            <br>
+            <label>Cidade:</label>
+            <input type="text" id="ipt_cor" name="cidade" placeholder="Digite sua cidade">
+            <br>
+            <label>Preco:</label>
+            <input type="text" id="ipt_cor" name="preco" placeholder="Digite o Preço">
+            <br>
+            </div>
                 <div class="image-ven">
                     <h4>Selecione a(s) imagem(s) para o anuncio</h1>
                     <label for="fileInput" class="custom-file-upload">
                         <img src="https://static.thenounproject.com/png/187803-200.png" alt="Escolher Ficheiro">
                       </label>
-                      <input type="file" name="imagens[]" id="fileInput" multiple="multiple" >
+                      <input type="file" name="imagens[]" id="fileInput" multiple="multiple" style="display: none;">
                       <div id="preview"></div>
                       <div class="butt">
                         <button type="submit">Concluir</button>
-                    </div>
-            </div></form>
+                    </div></form>
+            </div>
         </div>
     </div>
 
@@ -204,4 +218,82 @@ $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 </html>
 
 
+<?php
 
+$conexao=mysqli_connect("localhost", "root", "Sk8long2077#", "getninjas");
+if(!$conexao){
+    echo "erro-bd";
+    exit;
+}
+
+if (isset($_POST['tipo'])) {
+
+    $tipo = $_POST['tipo'];
+    $condominio = $_POST['cond'];
+    $km = $_POST['tam'];
+    $quartos = $_POST['quart'];
+    $banheiro = $_POST['ban'];
+    $vagas = $_POST['vagas'];
+    $TPubli = $_POST['tpubli'];
+    $mobilia = $_POST['mob'];
+    $andar = $_POST['and'];
+    $lograd = $_POST['lograd'];
+    $bairro = $_POST['bairro'];
+    $estado = $_POST['estado'];
+    $cep = $_POST['cep'];
+    $city = $_POST['cidade'];
+    $preco = $_POST['preco'];
+    require('conecta.php');
+
+    $gravar = "INSERT INTO imovel (tipo, condominio, tamanho, quartos, banheiros, vagas, trans_publi, mobilia, andar, endereçoImovel, bairroImovel, estadoImovel, cepImovel, cidadeImovel, preco)
+    VALUE 
+    ('$tipo','$condominio','$km','$quartos','$banheiro','$vagas','$TPubli','$mobilia','$andar','$lograd','$bairro','$estado','$cep','$city','$preco') ";
+    $resultado = mysqli_query($conexao, $gravar);
+    if ($resultado == false) {
+        echo 
+        "<script> window.alert('Problemas ao Inserir.');
+        window.location.href='inserirImovel.html'
+        </script>";
+    } else {
+        echo 
+        "<script> window.alert('Inserido com sucesso.');
+        window.location.href='inserirImovel.html'
+        </script>";
+    }
+
+    $diretorio = "images/$usuario_id/";
+
+    // Criar o diretório
+    mkdir($diretorio, 0755);
+
+    // Receber os arquivos do formulário
+    $arquivo = $_FILES['imagens'];
+    //var_dump($arquivo);
+
+    // Ler o array de arquivos
+    for ($cont = 0; $cont < count($arquivo['name']); $cont++) {
+
+        // Receber nome da imagem
+        $nome_arquivo = $arquivo['name'][$cont];
+
+        // Criar o endereço de destino das imagens
+        $destino = $diretorio . $arquivo['name'][$cont];
+
+        // Acessa o IF quando realizar o upload corretamente
+        if (move_uploaded_file($arquivo['tmp_name'][$cont], $destino)) {
+            $query_imagem = "UPDATE INTO carro (nome_imagem VALUES (:nome_imagem) WHERE fk_vendedor LIKE = 1";
+            $cad_imagem = $conn->prepare($query_imagem);
+            $cad_imagem->bindParam(':nome_imagem', $nome_arquivo);
+
+            if ($cad_imagem->execute()) {
+                $_SESSION['msg'] = "<p style='color: green;'>Imagem cadastrado com sucesso!</p>";
+            } else {
+                $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Imagem não cadastrada com sucesso!</p>";
+            }
+        } else {
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Imagem não cadastrada com sucesso!</p>";
+        }
+    }
+}
+
+?>

@@ -31,6 +31,10 @@ $resultado = mysqli_query($conexao, $SQL);
 
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
+$sql = "SELECT id, nome, cor, combustivel, tipo, email, especificações, preco, km, carroceria, estado FROM carro join cadastrovendedor on fkVendor = idVendor where idVendor = $id"; /* query utilizada para buscar dados no banco para exibir em um card */
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+
 ?>
 
 
@@ -98,16 +102,16 @@ $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
             
             <br>
             <label>Tipo:</label>
-            <input type="text" id="ipt_cor" name="tipo" placeholder="Versão">
+            <input type="text" id="ipt_cor" name="tipo" value="<?php echo $row["tipo"] ?>">
             <br>
             <label>Cor:</label>
-            <input type="text" id="ipt_cor" name="cor" placeholder="Cor">
+            <input type="text" id="ipt_cor" name="cor" value="<?php echo $row["cor"] ?>">
             <br>
             <label>Carroceria:</label>
-            <input type="text" id="ipt_cor" name="carroc" placeholder="Quantos Kilometros andados">
+            <input type="text" id="ipt_cor" name="carroc" value="<?php echo $row["carroceria"] ?>">
             <br>
             <label>Combustivel:</label>
-            <input type="text" id="ipt_cor" name="combu" placeholder="Quantos Kilometros andados">
+            <input type="text" id="ipt_cor" name="combu" value="<?php echo $row["combustivel"] ?>">
             <br>
 </div>
 <div class="cont-ven">
@@ -135,7 +139,7 @@ $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
                     <label for="fileInput" class="custom-file-upload">
                         <img src="https://static.thenounproject.com/png/187803-200.png" alt="Escolher Ficheiro">
                       </label>
-                      <input type="file" name="imagens[]" id="fileInput" multiple="multiple" >
+                      <input type="file" name="imagens[]" id="fileInput" multiple="multiple" style="display: none;">
                       <div id="preview"></div>
                       <div class="butt">
                         <button type="submit">Concluir</button>
