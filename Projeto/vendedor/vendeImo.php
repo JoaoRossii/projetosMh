@@ -1,4 +1,3 @@
-
 <?php 
 
 $servername = "localhost";
@@ -120,11 +119,11 @@ $resultado = mysqli_query($conexao, $SQL);
             <label>Mobilia:</label>
             <input type="text" id="ipt_cor" name="mob" placeholder="Sim ou Não">
             <br>
-                </div>
-                <div class="cont-ven">
             <label>Andar:</label>
             <input type="text" id="ipt_cor" name="and" placeholder="Qual ou quantos andares possui">
             <br>
+                </div>
+                <div class="cont-ven">
             <label>Logradouro:</label>
             <input type="text" id="ipt_cor" name="lograd" placeholder="Digite sua Rua, Av ...">
             <br>
@@ -216,7 +215,6 @@ $resultado = mysqli_query($conexao, $SQL);
     </script>
 </body>
 </html>
-
 
 <?php
 
