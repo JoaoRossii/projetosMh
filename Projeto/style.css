@@ -1733,3 +1733,115 @@ body{
         justify-content: center;
         flex-wrap: wrap;
       }
+      .props-main{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .props-main .card{
+        width: 550px;
+        height: 630px;
+        background-color: var(--header-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 30px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 2px 2px 20px #00000010;
+      }
+      .props-main .who{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        color: var(--font-color);
+      }
+      .props-main h4{
+        font-size: 30px;
+      }
+      .props-main .who i{
+        font-size: 60px;
+      }
+      .props-main #cookieSvg {
+        width: 180px;
+      }
+            
+      .props-main .cookieHeading {
+        font-size: 25px;
+        font-weight: 800;
+        color: rgb(26, 26, 26);
+      }
+      
+      .props-main .cookieDescription {
+        text-align: justify;
+        font-size: 1em;
+        font-weight: 500;
+        color: var(--font-color2);
+      }
+      .props-main .cookieHeading{
+        position: absolute;
+        top: 0  ;
+      }
+    .cardito-compr{
+        width: 500px;
+        height: 600px;
+        background: var(--header-color);
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        box-shadow: 0 0 20px 10px #00000010;
+    }
+    .div_butu{
+        width: 100%;
+        height: 70px;
+        align-items: center;
+        display: flex;
+        border-top: 2px solid var(--line-color);
+        justify-content: center;
+    }
+    .final-comp button{
+        width: 200px;
+        height: 50px;
+        border-radius: 10px;
+        background: var(--main-color);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 15px;
+    }
+    .final-comp button:hover{
+        background: var(--second-color);
+        transition: 0.5s;
+    }
+    .show-prof{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+    }
+    .final-comp{
+        width: 100%;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        border-top: 2px solid var(--line-color);
+        align-items: center;
+    }
+    .profinho{
+        width: 100%;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .profinho i{
+        font-size: 180px;
+    }
+    .profinho label{
+        font-size: 28px;
+    }
