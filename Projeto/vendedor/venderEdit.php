@@ -58,7 +58,8 @@ if (!empty($_POST)) {
 }
 $selectCarro .= "ORDER BY nome";
 
-$sql = "SELECT id, nome, tipo, cor, email, especificações, preco, km, carroceria, estado FROM carro join cadastrovendedor on fkVendor = idVendor where idVendor = $id"; /* query utilizada para buscar dados no banco para exibir em um card */
+$sql = "SELECT id, nome, tipo, cor, email, especificações, preco, km, carroceria,
+ estado FROM carro join cadastrovendedor on fkVendor = idVendor where idVendor = $id"; /* query utilizada para buscar dados no banco para exibir em um card */
 $result = $conn->query($sql);
 $resulte = $conn->query($sql);
 ?>
@@ -141,7 +142,7 @@ $resulte = $conn->query($sql);
                     src='https://s2-autoesporte.glbimg.com/7QsD8eYB517mrkj2HIhARSHntcM=/0x0:707x402/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2021/B/7/NTyPQHSkSxa78crlBzZg/img-design-externo.png'
                     alt='Imagem 1'></div>";
                     echo "</div>";
-                    echo "<input type='hidden' value='". $row["id"]."'>";
+                    echo "<input type='hidden' name='idCarro' value='". $row["id"]."'>";
                     echo "<div class='descrip'>";
                     echo "<h2>" . $row["tipo"] . " " . $row["nome"] . "</h2>";
                     echo "<span class='esp'>" . $row["especificações"] . "</span>";

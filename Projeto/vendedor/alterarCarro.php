@@ -25,15 +25,20 @@ $bairro = $_SESSION['bairro'];
 $estado = $_SESSION['estado'];
 
 require_once('conecta.php');
+if (isset($_POST["idCarro"])){
+
+$idCarro = $_POST["idCarro"];
 
 $SQL = "select * FROM cadastrousuario where email='" . $email . "'";
 $resultado = mysqli_query($conexao, $SQL);
 
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-$sql = "SELECT id, nome, cor, combustivel, tipo, email, especificações, preco, km, carroceria, estado FROM carro join cadastrovendedor on fkVendor = idVendor where idVendor = $id"; /* query utilizada para buscar dados no banco para exibir em um card */
+$sql = "SELECT id, nome, cor, marca, combustivel, troca, tipo, email, especificações, finalplaca, descricao, preco, km, carroceria, estado FROM carro join cadastrovendedor on fkVendor = idVendor where id = $idCarro"; /* query utilizada para buscar dados no banco para exibir em um card */
 $result = $conn->query($sql);
-$row = $result->fetch_assoc();
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
 
 ?>
 
@@ -95,13 +100,14 @@ $row = $result->fetch_assoc();
                 <div class="cont-ven">
                 <form action="inserirCarro.php" method="post" enctype="multipart/form-data">
                     <label for="marcas">Marca:</label>
-                    <input type="text" id="ipt_cor" name="marca" placeholder="Digite a marca do seu carro">
+                    <input type="text" id="ipt_cor" name="marca" value="<?php echo $row["marca"] ?>">
                 <br>
                 <label>Nome:</label>
-               <input type="text" max="2024" id="ipt_ano" name="nomeCarro" maxlength="4" placeholder="Ano do modelo">
+               <input type="text" max="2024" id="ipt_ano" name="nomeCarro" value="<?php echo $row["nome"] ?>" maxlength="4">
             
             <br>
             <label>Tipo:</label>
+            <input type="hidden" name="idCarro" value="<?php $idCarro ?>">
             <input type="text" id="ipt_cor" name="tipo" value="<?php echo $row["tipo"] ?>">
             <br>
             <label>Cor:</label>
@@ -116,23 +122,23 @@ $row = $result->fetch_assoc();
 </div>
 <div class="cont-ven">
             <label>Final da Placa:</label>
-            <input type="text" id="ipt_cor" name="finpla" placeholder="Quantos Kilometros andados">
+            <input type="text" id="ipt_cor" name="finpla" value="<?php echo $row["finalplaca"] ?>">
             <br>
             <label>Troca:</label>
-            <input type="text" id="ipt_cor" name="troc" placeholder="Sim ou Não?">
+            <input type="text" id="ipt_cor" name="troc" value="<?php echo $row["troca"] ?>">
             <br>
             <label>Km:</label>
-            <input type="text" id="ipt_cor" name="km" placeholder="Quantos Kilometros andados">
+            <input type="text" id="ipt_cor" name="km" value="<?php echo $row["km"] ?>">
             <br>
             <label>Preço:</label>
-            <input type="text" id="ipt_cor" name="preco" placeholder="Preço">
+            <input type="text" id="ipt_cor" name="preco" value="<?php echo $row["preco"] ?>">
             <br>
             <label>Especificações:</label>
-            <input type="text" id="ipt_cor" name="espec" placeholder="Quantos Kilometros andados">
+            <input type="text" id="ipt_cor" name="espec" value="<?php echo $row["especificações"] ?>">
             <br>
             <label>Descrição:</label>
             
-            <input type="text" id="ipt_cor" cols="30" rows="10" name="descr" placeholder="Escreva uma breve descrição"></textarea>
+            <input type="text" id="ipt_cor" cols="30" rows="10" name="descr" value="<?php echo $row["descricao"] ?>"></textarea>
                 </div>
                 <div class="image-ven">
                     <h4>Selecione a(s) imagem(s) para o anuncio</h1>
@@ -147,6 +153,9 @@ $row = $result->fetch_assoc();
             </div></form>
         </div>
     </div>
+
+    <?php }
+                }        }                                                           ?>
 
     <script>
         function mostrarOpcaoEspecifica() {
