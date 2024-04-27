@@ -58,7 +58,7 @@ if (!empty($_POST)) {
 }
 $selectCarro .= "ORDER BY nome";
 
-$sql = "SELECT * FROM carro join cadastrovendedor on fkVendor = idVendor"; /* query utilizada para buscar dados no banco para exibir em um card */
+$sql = "SELECT * FROM imovel WHERE fkVendor = '$id' "; /* query utilizada para buscar dados no banco para exibir em um card */
 $result = $conn->query($sql);
 $resulte = $conn->query($sql);
 ?>
@@ -77,81 +77,50 @@ $resulte = $conn->query($sql);
 </head>
 
 <body>
-    <div class="header">
-        <div class="logo">
-            <a href="#" style="text-decoration: none; color: #000; font-size: 25px;">Logo</a>
-        </div>
-        <div class="op">
-                <li class="opi1">Anuncios
+<div class="header">
+            <div class="logo">
+                <a href="indexV.php" style="text-decoration: none; color: var(--font-color); font-size: 25px;">Logo</a>
+            </div>
+            <div class="op">
+                <li class="opi1"> Anuncios
                     <div class="dropdown">
                         <div class="dropdown-content">
-                            <a href="prosp-tela.php">Meus anuncios</a>
-                            <a href="form-prosp.php">Postar Anuncio</a>
+                            <a href="minhasProsp.php">Meus Anuncios</a>
+                            <a href="prosp-tela.php">Todos Anuncios</a>
                         </div>
                     </div>
                 </li>
-                <li class="opi1">Imoveis 
+                <li class="opi1"> Seu Carro
                     <div class="dropdown">
                         <div class="dropdown-content">
-                            <a href="CompouAlu_imoveis.php">Ver Vitrine</a>
+                            <a href="vender.php">Inserir Carro</a>
+                            <a href="venderEdit.php">Editar Carro</a>
                         </div>
                     </div>
                 </li>
-                <li class="opi1">Veiculos 
+                <li class="opi1"> Seu Imovel
                     <div class="dropdown">
                         <div class="dropdown-content">
-                            <a href="carros_novos.php">Ver Vitrine</a>
+                            <a href="vendeImo.php">Inserir Imovel</a>
+                            <a href="venderImoEdit">Editar Imovel</a>
                         </div>
                     </div>
                 </li>
             </div>
             <div class="ot">
-            <i class='bx bx-moon night'></i>
-            <i class='bx bx-heart'></i>
-            <li class="opi1" style="list-style: none;">
-                <div class="dropdown"><i class='bx bx-user-circle'></i>
-                    <div class="dropdown-content2">
-                        <a href="perfil.php"><i class='bx bx-user'></i>Minha conta</a>
-                        <a href="#"><i class='bx bx-log-out'></i>Sair</a>
+                <i class='bx bx-moon night'></i>
+                <li class="opi1" style="list-style: none;>
+                    <div class="dropdown"><i class='bx bx-user-circle'></i>
+                        <div class="dropdown-content2">
+                            <a href="anuncios.html"><i class='bx bx-edit'></i>Meus Anuncios</a>
+                            <a href="perfil.php"><i class='bx bx-user'></i>Minha conta</a>
+                        </div>
                     </div>
-                </div>
-            </li>
-        </div>
-        <div class="ot2">
-            <i class='bx bx-menu'></i>
-        </div>
-    </div>
-    <div class="side-bar" id="sidebar">
-        <div class="content-side">
-            <div class="op3">
-                <div class="tipi">
-                    <span>Carros</span>
-                    <span>Motos</span>
-                </div>
-                <div class="restu">
-                    <span>Localização</span>
-                    <form action="resultadoLocal.php" method="post" >
-                        <input type="text" name="cidade" placeholder="Digite a Cidade"><i class='bx bx-map'></i>
-                    </form>
-                </div>
+                </li>
             </div>
-            <div class="clean">
-                <button>Limpar</button>
+            <div class="ot2">
+                <i class='bx bx-menu'></i>
             </div>
-        </div>
-    </div>
-    <div class="menu-cima">
-        <div class="j1">
-            <i class='bx bx-slider-alt' onclick="toggleSidebar()"></i>
-        </div>
-        <div class="j3">
-        <form action="resultado.php" method="post" >
-            <input type="text" id="" placeholder="Digite o nome" name="nome">
-            <select class="slc1">
-                <option value="2" name="MaxPreco" >Maior preço</option>
-                <option value="3" name="MinPreco" >Menor preço</option>
-            </select>
-        </form>
         </div>
     </div>
     <div class="centri">
@@ -160,39 +129,39 @@ $resulte = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        echo "<form method='post' action='anuncio-espc.php'>";
-                    echo "<div class='card-container'>";
-                    echo "<div class='cardC'>";
-                    echo "<div class='photo'><img src='../vendedor/imagensCarro/". $row["fkVendor"] ."/". $row["imagem1"] . "' alt='Imagem 1'></div>";
-                    echo "<div class='photo'><img src='../vendedor/imagensCarro/". $row["fkVendor"] ."/". $row["imagem2"] . "' alt='Imagem 2'></div>";
-                    echo "<div class='photo'><img src='../vendedor/imagensCarro/". $row["fkVendor"] ."/". $row["imagem3"] . "' alt='Imagem 3'></div>";
-                    echo "</div>";
-                    echo "<input type='hidden' value='". $row["idCarro"] ."' name='identificador'>";
-                    echo "<div class='descrip'>";
-                    echo "<h2>" . $row["tipo"] . " " . $row["nome"] . "</h2>";
-                    echo "<span class='esp'>" . $row["especificações"] . "</span>";
-                    echo "<div class='prec-ano'>";
-                    echo "<h3>" . $row["preco"] . "</h3>";
-                    echo "<span>" . $row["carroceria"] . "</span>";
-                    echo "</div>";
-                    echo "<div class='km-loc'>";
-                    echo "<span class='kaemi'>" . $row["km"] . "Km </span>";
-                    echo "<div class='loqui'>";
-                    echo "<i class='bx bx-map'></i>";
-                    echo "<span class='loc'>" . $row["estado"] . "</span>";
-                    echo "</div>";
-                    echo "</div>";
-                    echo "<div class='buttu-gostei'>";
-                    echo "<div class='primi'></div>";
-                    echo "<button>Ver mais</button>";
-                    echo "<div class='goxtei'><i class='bx bx-heart'></i></div>";
-                    echo "</div>";
-                    echo "</div>";
-                    echo "<div class='prev'>&#10094;</div>";
-                    echo "<div class='next'>&#10095;</div>";
-                    echo "</div>";
-                    echo "</form>";
-                    }
+                        echo "<div class='card-containerLC'>";
+                        echo "<div class='cardC'>";
+                        echo "<div class='photo'><img src='imagensImovel/$id/". $row["imagem1"] ."' alt='Imagem 1'></div>";
+                        echo "<div class='photo'><img src='imagensImovel/$id/". $row["imagem2"] ."' alt='Imagem 1'></div>";
+                        echo "<div class='photo'><img src='imagensImovel/$id/". $row["imagem3"] ."' alt='Imagem 1'></div>";
+                        echo "</div>";
+                        echo "<div class='descrip'>";
+                        echo "<form action='vendeImoEdit.php' method='post'>";
+                        echo "<input type='hidden' name='identificador' value='". $row["id"]."'>";
+                        echo "<h2>" . $row["tipo"] . " em " . $row["cidadeImovel"] . "</h2>";
+                        echo "<span class='esp'>" . $row["quartos"] ." quartos , ". $row["banheiros"] .  " banheiros</span>";
+                        echo "<div class='prec-ano'>";
+                        echo "<h3>" . $row["preco"] . "</h3>";
+                        echo "<span>" . $row["vagas"] . " vagas</span>";
+                        echo "</div>";
+                        echo "<div class='km-loc'>";
+                        echo "<span class='kaemi'>" . $row["tamanho"] . "Km² </span>";
+                        echo "<div class='loqui'>";
+                        echo "<i class='bx bx-map'></i>";
+                        echo "<span class='loc'>" . $row["estadoImovel"] . "</span>";
+                        echo "</div>";
+                        echo "</div>";
+                        echo "<div class='buttu-gostei'>";
+                        echo "<div class='primi'></div>";
+                        echo "<button type='submit'>Ver mais</button>";
+                        echo "<div class='goxtei'><i class='bx bx-heart'></i></div>";
+                        echo "</div>";
+                        echo "</div>";
+                        echo "<div class='prev'>&#10094;</div>";
+                        echo "<div class='next'>&#10095;</div>";
+                        echo "</div>";
+                        echo "</form>";
+                        }
                 } else {
                     echo "Nenhum Carro econtrado.";
                     }

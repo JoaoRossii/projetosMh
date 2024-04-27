@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Erro na conexão com o banco de dados: " . $conn->connect_error);
 }
 
-$sql = "SELECT nome, tipo, email, especificações, preco, km, carroceria FROM carro join cadastrovendedor on fkVendor = idVendor where id = 1"; /* query utilizada para buscar dados no banco para exibir em um card */
+$sql = "SELECT nome, tipo, email, especificações, preco, km, carroceria FROM carro join cadastrovendedor on fkVendor = idVendor where idCarro = 1"; /* query utilizada para buscar dados no banco para exibir em um card */
 $result = $conn->query($sql);
 $resulte = $conn->query($sql);
 
@@ -64,26 +64,28 @@ $resultado = mysqli_query($conexao, $SQL);
                 <a href="index.html" style="text-decoration: none; color: var(--font-color); font-size: 25px;">Logo</a>
             </div>
             <div class="op">
-                <li class="opi1">Comprar
+                <li class="opi1">Anuncios
                     <div class="dropdown">
                         <div class="dropdown-content">
-                            <a href="carros_novos.php">Carros novos</a>
-                            <a href="#">Carros usados</a>
-                            <a href="CompouAlu_imoveis.php                                                                                                              ">Comprar Imóveis</a>
-                            <a href="#">Alugar Imóveis</a>
+                            <a href="prosp-tela.php">Meus anuncios</a>
+                            <a href="form-prosp.php">Postar Anuncio</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="opi1">Imoveis 
+                    <div class="dropdown">
+                        <div class="dropdown-content">
+                            <a href="CompouAlu_imoveis.php">Ver Vitrine</a>
                         </div>
                     </div>
                 </li>
                 <li class="opi1">Veiculos 
                     <div class="dropdown">
                         <div class="dropdown-content">
-                            <a href="carros_novos.php">Vender Carros</a>
-                            <a href="#">Vender Imovel</a>
-                            <a href="CompouAlu_imoveis.php">Alugue seu imóvel</a>
+                            <a href="carros_novos.php">Ver Vitrine</a>
                         </div>
                     </div>
                 </li>
-                <li>Imoveis</li>
             </div>
             <div class="ot">
                 <i class='bx bx-moon night'></i>
@@ -91,9 +93,7 @@ $resultado = mysqli_query($conexao, $SQL);
                 <li class="opi1">
                     <div class="dropdown"><i class='bx bx-user-circle'></i>
                         <div class="dropdown-content2">
-                            <a href="anuncios.html"><i class='bx bx-edit' ></i>Meus Anuncios</a>
                             <a href="perfil.php"><i class='bx bx-user'></i>Minha conta</a>
-                            <a href="#"><i class='bx bx-dollar-circle'></i>Saldos</a>
                             <a href="#"><i class='bx bx-log-out'></i>Sair</a>
                         </div>
                     </div>

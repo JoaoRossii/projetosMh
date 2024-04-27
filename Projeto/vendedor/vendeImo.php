@@ -11,10 +11,6 @@ if ($conn->connect_error) {
     die("Erro na conexão com o banco de dados: " . $conn->connect_error);
 }
 
-$sql = "SELECT nome, tipo, email, especificações, preco, km, carroceria FROM carro join cadastrovendedor on fkVendor = idVendor where id = 1"; /* query utilizada para buscar dados no banco para exibir em um card */
-$result = $conn->query($sql);
-$resulte = $conn->query($sql);
-
 session_start();
 $id = $_SESSION['id'];
 $nome = $_SESSION['nome'];
@@ -42,31 +38,34 @@ $resultado = mysqli_query($conexao, $SQL);
 <body>
     <div class="header">
         <div class="logo">
-            <a href="index.html" style="text-decoration: none; color: var(--font-color); font-size: 25px;">Logo</a>
+            <a href="indexV.php" style="text-decoration: none; color: var(--font-color); font-size: 25px;">Logo</a>
         </div>
         <div class="op">
-            <li class="opi1">Comprar
-                <div class="dropdown">
-                    <div class="dropdown-content">
-                        <a href="carros_novos.html">Carros novos</a>
-                        <a href="#">Carros usados</a>
-                        <a href="CompouAlu_imoveis.html">Comprar Imóveis</a>
-                        <a href="#">Alugar Imóveis</a>
+                <li class="opi1"> Anuncios
+                    <div class="dropdown">
+                        <div class="dropdown-content">
+                            <a href="minhasProsp.php">Meus Anuncios</a>
+                            <a href="prosp-tela.php">Todos Anuncios</a>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li class="opi1">Vender
-                <div class="dropdown">
-                    <div class="dropdown-content">
-                        <a href="vender.html">Vender Carros</a>
-                        <a href="#">Vender Imovel</a>
-                        <a href="CompouAlu_imoveis.html">Alugue seu imóvel</a>
+                </li>
+                <li class="opi1"> Seu Carro
+                    <div class="dropdown">
+                        <div class="dropdown-content">
+                            <a href="vender.php">Inserir Carro</a>
+                            <a href="venderEdit.php">Editar Carro</a>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li>Oficios</li>
-            <li>Suporte</li>
-        </div>
+                </li>
+                <li class="opi1"> Seu Imovel
+                    <div class="dropdown">
+                        <div class="dropdown-content">
+                            <a href="vendeImo.php">Inserir Imovel</a>
+                            <a href="imoveisEdit.php">Editar Imovel</a>
+                        </div>
+                    </div>
+                </li>
+            </div>
         <div class="ot">
             <i class='bx bx-moon night'></i>
             <i class='bx bx-heart'></i>
@@ -148,7 +147,11 @@ $resultado = mysqli_query($conexao, $SQL);
                     <label for="fileInput" class="custom-file-upload">
                         <img src="https://static.thenounproject.com/png/187803-200.png" alt="Escolher Ficheiro">
                       </label>
-                      <input type="file" name="imagens[]" id="fileInput" multiple="multiple" style="display: none;">
+                      <input type="file" name="imagens1" id="fileInput">
+                      <input type="file" name="imagens2" id="fileInput">
+                      <input type="file" name="imagens3" id="fileInput">
+                      <input type="file" name="imagens4" id="fileInput">
+                      <input type="file" name="imagens5" id="fileInput">
                       <div id="preview"></div>
                       <div class="butt">
                         <button type="submit">Concluir</button>

@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Erro na conexão com o banco de dados: " . $conn->connect_error);
 }
 
-$sql = "SELECT nome, tipo, email, especificações, preco, km, carroceria FROM carro join cadastrovendedor on fkVendor = idVendor where id = 1"; /* query utilizada para buscar dados no banco para exibir em um card */
+$sql = "SELECT nome, tipo, email, especificações, preco, km, carroceria FROM carro join cadastrovendedor on fkVendor = idVendor where idCarro = 1"; /* query utilizada para buscar dados no banco para exibir em um card */
 $result = $conn->query($sql);
 $resulte = $conn->query($sql);
 
@@ -68,7 +68,7 @@ $resultado = mysqli_query($conexao, $SQL);
                     <div class="dropdown">
                         <div class="dropdown-content">
                             <a href="#">Meus Anuncios</a>
-                            <a href="#">Comprar Imóveis</a>
+                            <a href="prosp-tela.php">Todos Anuncios</a>
                             <a href="#">Alugar Imóveis</a>
                         </div>
                     </div>
@@ -85,7 +85,7 @@ $resultado = mysqli_query($conexao, $SQL);
                     <div class="dropdown">
                         <div class="dropdown-content">
                             <a href="vendeImo.php">Inserir Imovel</a>
-                            <a href="venderImoEdit">Editar Imovel</a>
+                            <a href="imoveisEdit.php">Editar Imovel</a>
                         </div>
                     </div>
                 </li>
@@ -97,7 +97,7 @@ $resultado = mysqli_query($conexao, $SQL);
                     <div class="dropdown"><i class='bx bx-user-circle'></i>
                         <div class="dropdown-content2">
                             <a href="anuncios.html"><i class='bx bx-edit'></i>Meus Anuncios</a>
-                            <a href="perfil.php"><i class='bx bx-user'></i>Minha conta</a>
+                            <a href="perfilV.php"><i class='bx bx-user'></i>Minha conta</a>
                         </div>
                     </div>
                 </li>

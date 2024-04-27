@@ -58,8 +58,8 @@ if (!empty($_POST)) {
 }
 $selectCarro .= "ORDER BY nome";
 
-$sql = "SELECT id, nome, tipo, cor, email, especificações, preco, km, carroceria,
- estado FROM carro join cadastrovendedor on fkVendor = idVendor where idVendor = $id"; /* query utilizada para buscar dados no banco para exibir em um card */
+$sql = "SELECT idCarro, nome, tipo, cor, email, especificações, preco, km, carroceria,
+ estado, imagem1, imagem2, imagem3 FROM carro join cadastrovendedor on fkVendor = idVendor where idVendor = $id"; /* query utilizada para buscar dados no banco para exibir em um card */
 $result = $conn->query($sql);
 $resulte = $conn->query($sql);
 ?>
@@ -80,15 +80,14 @@ $resulte = $conn->query($sql);
 <body>
 <div class="header">
             <div class="logo">
-                <a href="index.html" style="text-decoration: none; color: var(--font-color); font-size: 25px;">Logo</a>
+                <a href="indexV.php" style="text-decoration: none; color: var(--font-color); font-size: 25px;">Logo</a>
             </div>
             <div class="op">
-                <li class="opi1">Ver Anuncios
+                <li class="opi1"> Anuncios
                     <div class="dropdown">
                         <div class="dropdown-content">
-                            <a href="#">Anuncios</a>
-                            <a href="#">Minhas propostas</a>
-                            <a href="#">Alugar Imóveis</a>
+                            <a href="minhasProsp.php">Meus Anuncios</a>
+                            <a href="prosp-tela.php">Todos Anuncios</a>
                         </div>
                     </div>
                 </li>
@@ -104,7 +103,7 @@ $resulte = $conn->query($sql);
                     <div class="dropdown">
                         <div class="dropdown-content">
                             <a href="vendeImo.php">Inserir Imovel</a>
-                            <a href="venderImoEdit">Editar Imovel</a>
+                            <a href="imoveisEdit.php">Editar Imovel</a>
                         </div>
                     </div>
                 </li>
@@ -134,15 +133,11 @@ $resulte = $conn->query($sql);
                     echo "<form action='alterarCarro.php' method='post'>";
                     echo "<div class='card-container'>";
                     echo "<div class='cardC'>";
-                    echo "<div class='photo'><img src='uno.png' alt='Imagem 1'></div>";  
-                    echo "<div class='photo'><img
-                    src='https://www.karvi.com.br/_next/image/?url=https%3A%2F%2Fdjdnloyvqzzd3.cloudfront.net%2Fstatic%2Fgallery%2Fbr%2Fdesktop%2Ffiat_uno_2021_plano_detalle_tablero.jpg&w=1440&q=90'
-                    alt='Imagem 1'></div>";
-                    echo "<div class='photo'><img
-                    src='https://s2-autoesporte.glbimg.com/7QsD8eYB517mrkj2HIhARSHntcM=/0x0:707x402/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2021/B/7/NTyPQHSkSxa78crlBzZg/img-design-externo.png'
-                    alt='Imagem 1'></div>";
+                    echo "<div class='photo'><img src='imagensCarro/$id/". $row["imagem1"] . "' alt='Imagem 1'></div>";
+                    echo "<div class='photo'><img src='imagensCarro/$id/". $row["imagem2"] . "' alt='Imagem 2'></div>";
+                    echo "<div class='photo'><img src='imagensCarro/$id/". $row["imagem3"] . "' alt='Imagem 3'></div>";
                     echo "</div>";
-                    echo "<input type='hidden' name='idCarro' value='". $row["id"]."'>";
+                    echo "<input type='hidden' name='idCarro' value='". $row["idCarro"]."'>";
                     echo "<div class='descrip'>";
                     echo "<h2>" . $row["tipo"] . " " . $row["nome"] . "</h2>";
                     echo "<span class='esp'>" . $row["especificações"] . "</span>";

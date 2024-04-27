@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Chat</title>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: var(--font-color); font-size: 25px;">Logo</a>
+        </div>
+        <div class="op">
+            <li class="opi1">Anuncios
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <a href="prosp-tela.php">Meus anuncios</a>
+                        <a href="form-prosp.php">Postar Anuncio</a>
+                    </div>
+                </div>
+            </li>
+            <li class="opi1">Imoveis 
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <a href="CompouAlu_imoveis.php">Ver Vitrine</a>
+                    </div>
+                </div>
+            </li>
+            <li class="opi1">Veiculos 
+                <div class="dropdown">
+                    <div class="dropdown-content">
+                        <a href="carros_novos.php">Ver Vitrine</a>
+                    </div>
+                </div>
+            </li>
+        </div>
+        <div class="ot">
+            <i class='bx bx-moon night'></i>
+            <i class='bx bx-heart'></i>
+            <li class="opi1" style="list-style: none;">
+                <div class="dropdown"><i class='bx bx-user-circle'></i>
+                    <div class="dropdown-content2">
+                        <a href="anuncios.html"><i class='bx bx-edit' ></i>Meus Anuncios</a>
+                        <a href="perfil.html"><i class='bx bx-user'></i>Minha conta</a>
+                        <a href="#"><i class='bx bx-dollar-circle'></i>Saldos</a>
+                        <a href="#"><i class='bx bx-log-out'></i>Sair</a>
+                    </div>
+                </div>
+            </li>
+        </div>
+        <div class="ot2">
+            <i class='bx bx-menu'></i>
+        </div>
+    </div>
+    <div class="content-perf">
+        <div class="main-perf">
+            <div class="display-perf">
+                <img src="https://i.pinimg.com/originals/42/07/81/420781385c0f05000a2e30cd2381fc3c.gif" alt="">
+                <i class='bx bx-user-circle'></i>
+            </div>
+            <div class="perf-op">
+                <a href="anuncios.html"><li><i class='bx bx-edit' ></i>Meus anuncios</li></a>
+                <a href="#"><li class="usi"><i class='bx bx-chat'></i>Chat</li></a>
+                 <a href="perfil.html"><li><i class='bx bx-user'></i>Minha conta</li></a>
+                <li><i class='bx bx-log-out'></i>Sair</li>
+            </div>
+            
+        </div>
+        <div class="chat-main">
+            <div class="chat-op">
+                <div class="comp-vend">
+                    <span>Compradores</span>
+                    <span>Vendedores</span>
+                </div>
+                <span class="no">Você não começou um chat.</span>
+            </div>
+            <div class="chat-box">
+                <div class="send-mes">
+                    <input type="text" placeholder="Envie uma mensagem ...">
+                    <i class='bx bxs-send'></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

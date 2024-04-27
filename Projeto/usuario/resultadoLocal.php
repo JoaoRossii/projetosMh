@@ -26,7 +26,7 @@ $estado = $_SESSION['estado'];
 
 include "conecta.php";
 
-$selectCarro = "SELECT nome, tipo, email, especificações, preco, km, carroceria, estado, cidade FROM carro join cadastrovendedor on fkVendor = idVendor ";
+$selectCarro = "SELECT * FROM carro join cadastrovendedor on fkVendor = idVendor ";
 
 if (!empty($_POST)) {
     $selectCarro .= " WHERE (1=1)";
@@ -62,24 +62,40 @@ $resultado = mysqli_query($conexao,$selectCarro)
             <a href="#" style="text-decoration: none; color: #000; font-size: 25px;">Logo</a>
         </div>
         <div class="op">
-            <li class="opi1">Comprar
-                <div class="dropdown">
-                    <div class="dropdown-content">
-                        <a href="carros_novos.html">Carros novos</a>
-                        <a href="#">Carros usados</a>
-                        <a href="CompouAlu_imoveis.html">Comprar Imóveis</a>
-                        <a href="#">Alugar Imóveis</a>
+                <li class="opi1">Anuncios
+                    <div class="dropdown">
+                        <div class="dropdown-content">
+                            <a href="prosp-tela.php">Meus anuncios</a>
+                            <a href="form-prosp.php">Postar Anuncio</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="opi1">Imoveis 
+                    <div class="dropdown">
+                        <div class="dropdown-content">
+                            <a href="CompouAlu_imoveis.php">Ver Vitrine</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="opi1">Veiculos 
+                    <div class="dropdown">
+                        <div class="dropdown-content">
+                            <a href="carros_novos.php">Ver Vitrine</a>
+                        </div>
+                    </div>
+                </li>
+            </div>
+            <div class="ot">
+            <i class='bx bx-moon night'></i>
+            <i class='bx bx-heart'></i>
+            <li class="opi1" style="list-style: none;">
+                <div class="dropdown"><i class='bx bx-user-circle'></i>
+                    <div class="dropdown-content2">
+                        <a href="perfil.php"><i class='bx bx-user'></i>Minha conta</a>
+                        <a href="#"><i class='bx bx-log-out'></i>Sair</a>
                     </div>
                 </div>
             </li>
-            <li>Vender </li>
-            <li>Oficios</li>
-            <li>Suporte</li>
-        </div>
-        <div class="ot">
-            <i class='bx bx-moon night'></i>
-            <i class='bx bx-heart'></i>
-            <i class='bx bx-user-circle'></i>
         </div>
         <div class="ot2">
             <i class='bx bx-menu'></i>
@@ -124,39 +140,38 @@ $resultado = mysqli_query($conexao,$selectCarro)
             <?php
 
                     while ($row = mysqli_fetch_assoc($resultado)) {
-                    echo "<div class='card-container'>";
-                    echo "<div class='cardC'>";
-                    echo "<div class='photo'><img src='uno.png' alt='Imagem 1'></div>";  
-                    echo "<div class='photo'><img
-                    src='https://www.karvi.com.br/_next/image/?url=https%3A%2F%2Fdjdnloyvqzzd3.cloudfront.net%2Fstatic%2Fgallery%2Fbr%2Fdesktop%2Ffiat_uno_2021_plano_detalle_tablero.jpg&w=1440&q=90'
-                    alt='Imagem 1'></div>";
-                    echo "<div class='photo'><img
-                    src='https://s2-autoesporte.glbimg.com/7QsD8eYB517mrkj2HIhARSHntcM=/0x0:707x402/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2021/B/7/NTyPQHSkSxa78crlBzZg/img-design-externo.png'
-                    alt='Imagem 1'></div>";
-                    echo "</div>";
-                    echo "<div class='descrip'>";
-                    echo "<h2>" . $row["tipo"] . " " . $row["nome"] . "</h2>";
-                    echo "<span class='esp'>" . $row["especificações"] . "</span>";
-                    echo "<div class='prec-ano'>";
-                    echo "<h3>" . $row["preco"] . "</h3>";
-                    echo "<span>" . $row["carroceria"] . "</span>";
-                    echo "</div>";
-                    echo "<div class='km-loc'>";
-                    echo "<span class='kaemi'>" . $row["km"] . "Km </span>";
-                    echo "<div class='loqui'>";
-                    echo "<i class='bx bx-map'></i>";
-                    echo "<span class='loc'>" . $row["estado"] . "</span>";
-                    echo "</div>";
-                    echo "</div>";
-                    echo "<div class='buttu-gostei'>";
-                    echo "<div class='primi'></div>";
-                    echo "<button>Ver mais</button>";
-                    echo "<div class='goxtei'><i class='bx bx-heart'></i></div>";
-                    echo "</div>";
-                    echo "</div>";
-                    echo "<div class='prev'>&#10094;</div>";
-                    echo "<div class='next'>&#10095;</div>";
-                    echo "</div>";
+                        echo "<form method='post' action='anuncio-espc.php'>";
+                        echo "<div class='card-container'>";
+                        echo "<div class='cardC'>";
+                        echo "<div class='photo'><img src='../vendedor/imagensCarro/". $row["fkVendor"] ."/". $row["imagem1"] . "' alt='Imagem 1'></div>";
+                        echo "<div class='photo'><img src='../vendedor/imagensCarro/". $row["fkVendor"] ."/". $row["imagem2"] . "' alt='Imagem 2'></div>";
+                        echo "<div class='photo'><img src='../vendedor/imagensCarro/". $row["fkVendor"] ."/". $row["imagem3"] . "' alt='Imagem 3'></div>";
+                        echo "</div>";
+                        echo "<input type='hidden' value='". $row["idCarro"] ."' name='identificador'>";
+                        echo "<div class='descrip'>";
+                        echo "<h2>" . $row["tipo"] . " " . $row["nome"] . "</h2>";
+                        echo "<span class='esp'>" . $row["especificações"] . "</span>";
+                        echo "<div class='prec-ano'>";
+                        echo "<h3>" . $row["preco"] . "</h3>";
+                        echo "<span>" . $row["carroceria"] . "</span>";
+                        echo "</div>";
+                        echo "<div class='km-loc'>";
+                        echo "<span class='kaemi'>" . $row["km"] . "Km </span>";
+                        echo "<div class='loqui'>";
+                        echo "<i class='bx bx-map'></i>";
+                        echo "<span class='loc'>" . $row["estado"] . "</span>";
+                        echo "</div>";
+                        echo "</div>";
+                        echo "<div class='buttu-gostei'>";
+                        echo "<div class='primi'></div>";
+                        echo "<button>Ver mais</button>";
+                        echo "<div class='goxtei'><i class='bx bx-heart'></i></div>";
+                        echo "</div>";
+                        echo "</div>";
+                        echo "<div class='prev'>&#10094;</div>";
+                        echo "<div class='next'>&#10095;</div>";
+                        echo "</div>";
+                        echo "</form>";
                     }
                 ?>
 

@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 $servername = "localhost";
 $username = "root";
@@ -20,37 +20,34 @@ $rua = $_SESSION['rua'];
 $bairro = $_SESSION['bairro'];
 $estado = $_SESSION['estado'];
 
-$idCarro = $_POST['idCarro'];
-    
-
 require_once('conecta.php');
 
-$SQL = "select * FROM cadastrousuario where email='" . $email . "'";
-$resultado = mysqli_query($conexao, $SQL);
+$conexao=mysqli_connect("localhost", "root", "Sk8long2077#", "getninjas");
+if(!$conexao){
+    echo "erro-bd";
+    exit;
+}
 
-$dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+if (isset($_POST['tipo'])) {
 
-
-
-if (isset($_POST['nomeCarro'])) {
-
-    // Recupera os dados do formulário
-    $marca = $_POST['marca'];
-    $nome = $_POST['nomeCarro'];
     $tipo = $_POST['tipo'];
-    $cor = $_POST['cor'];
-    $carroc = $_POST['carroc'];
-    $comb = $_POST['combu'];
-    $finpla = $_POST['finpla'];
-    $troca = $_POST['troc'];
-    $km = $_POST['km'];
+    $condominio = $_POST['cond'];
+    $km = $_POST['tam'];
+    $quartos = $_POST['quart'];
+    $banheiro = $_POST['ban'];
+    $vagas = $_POST['vagas'];
+    $TPubli = $_POST['tpubli'];
+    $mobilia = $_POST['mob'];
+    $andar = $_POST['and'];
+    $lograd = $_POST['lograd'];
+    $bairro = $_POST['bairro'];
+    $estado = $_POST['estado'];
+    $cep = $_POST['cep'];
+    $city = $_POST['cidade'];
     $preco = $_POST['preco'];
-    $espec = $_POST['espec'];
-    $desc = $_POST['descr'];
-    $identificador = $_POST['idCarro'];
-    
+    $idImovel = $_POST['idImovel'];
+    require('conecta.php');
 
-    // Diretório para salvar as imagens
     if (isset($_FILES['imagens1'])) {
         // Obter nome do arquivo
         $nome_arquivo1 = $_FILES["imagens1"]["name"];
@@ -60,7 +57,7 @@ if (isset($_POST['nomeCarro'])) {
         $nome_arquivo5 = $_FILES["imagens5"]["name"];
     
         // Diretório para armazenar as imagens
-        $diretorio = "imagensCarro/$id/";
+        $diretorio = "imagensImovel/$id/";
     
         // Criar o diretório se não existir
         if (!file_exists($diretorio)) {
@@ -79,25 +76,31 @@ if (isset($_POST['nomeCarro'])) {
         echo "Erro: Não foram enviados todos os arquivos de imagem necessários.";
     }
 
-    // Agora que as imagens foram enviadas, você pode inserir os dados do carro no banco de dados
-    $gravar = "UPDATE carro SET nome = '$nome', tipo = '$tipo', especificações = '$espec', carroceria = '$carroc', combustivel = '$comb', finalplaca = '$finpla', cor = '$cor', troca = '$troca', descricao = '$desc', km = '$km', preco = '$preco', marca = '$marca', imagem1 = '$nome_arquivo1', imagem2 = '$nome_arquivo2', imagem3 = '$nome_arquivo3', imagem4 = '$nome_arquivo4', imagem5 = '$nome_arquivo5' WHERE idCarro = '$identificador' ";
-
+    $gravar = "UPDATE imovel SET tipo = '$tipo', condominio = '$condominio', tamanho = '$km', quartos = '$quartos', banheiros = '$banheiro', vagas = '$vagas', trans_publi = '$TPubli', mobilia = '$mobilia', andar = '$andar',
+    endereçoImovel = '$lograd', bairroImovel = '$bairro', estadoImovel = '$estado', cepImovel = '$cep', cidadeImovel = '$city', preco = '$preco', 
+    imagem1 = '$nome_arquivo1', imagem2 = '$nome_arquivo2', imagem3 = '$nome_arquivo3', imagem4 = '$nome_arquivo4', imagem5 = '$nome_arquivo5' WHERE id = '$idImovel'";
+    
     $resultado = mysqli_query($conexao, $gravar);
     if ($resultado == false) {
-        echo "<script> window.alert('Problemas ao Alterar.'); window.location.href=''; </script>";
+        echo 
+        "<script> window.alert('Problemas ao Inserir.');
+        window.location.href='vendeImo.php'
+        </script>";
     } else {
-        echo "<script> window.alert('Alterado com sucesso.'); window.location.href='venderEdit.php'; </script>";
+        echo 
+        "<script> window.alert('Inserido com sucesso.');
+        window.location.href='vendeImo.php'
+        </script>";
     }
 }
 
-$sql = "SELECT idCarro, nome, cor, marca, combustivel, troca, tipo, email, especificações, finalplaca, descricao, preco, km, carroceria, estado FROM carro join cadastrovendedor on fkVendor = idVendor where idCarro ='$idCarro'"; /* query utilizada para buscar dados no banco para exibir em um card */
+$identificador = $_POST["identificador"];
+$sql = "SELECT * FROM imovel where id ='$identificador'"; /* query utilizada para buscar dados no banco para exibir em um card */
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -106,7 +109,7 @@ if ($result->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <title>Perfil</title>
+    <title>Vender Imoveis</title>
 </head>
 <body>
     <div class="header">
@@ -145,8 +148,8 @@ if ($result->num_rows > 0) {
             <li class="opi1" style="list-style: none;">
                 <div class="dropdown"><i class='bx bx-user-circle'></i>
                     <div class="dropdown-content2">
-                        <a href="anuncios.html"><i class='bx bx-edit' ></i>Meus Anuncios</a>
-                        <a href="perfil.html"><i class='bx bx-user'></i>Minha conta</a>
+                        <a href="anuncios.html"><i class='bx bx-edit'></i>Meus Anuncios</a>
+                        <a href="perfilv.html"><i class='bx bx-user'></i>Minha conta</a>
                         <a href="#"><i class='bx bx-dollar-circle'></i>Saldos</a>
                         <a href="#"><i class='bx bx-log-out'></i>Sair</a>
                     </div>
@@ -155,50 +158,67 @@ if ($result->num_rows > 0) {
         </div>
         </div>
         <div class="main-vend">
-            <div class="vend-cardC">
+            <div class="vend-card">
                 <div class="cont-ven">
-                <form action="alterarCarro.php" method="post" enctype="multipart/form-data">
-                    <label for="marcas">Marca:</label>
-                    <input type="text" id="ipt_cor" name="marca" value="<?php echo $row["marca"] ?>">
-                <br>
-                <label>Nome:</label>
-               <input type="text" max="2024" id="ipt_ano" name="nomeCarro" value="<?php echo $row["nome"] ?>" >
-            
-            <br>
             <label>Tipo:</label>
-            <input type="text" name="idCarro" value="<?php echo $idCarro ?>" style="display: none;">
-            <input type="text" id="ipt_cor" name="tipo" value="<?php echo $row["tipo"] ?>">
+            <form action="vendeImoEdit.php" method="post" enctype="multipart/form-data">
+            <select class="slc-tipo" name="tipo" id="slcTipo">
+                <option value="Apartamento">Apartamento</option>
+                <option value="Casa">Casa</option>
+                <option value="Mansão">Mansão</option>
+                <option value="Chacara">Chacara</option>
+                <option value="Sitio">Sitio</option>
+            </select>
             <br>
-            <label>Cor:</label>
-            <input type="text" id="ipt_cor" name="cor" value="<?php echo $row["cor"] ?>">
+            <label>Condominio:</label>
+            <select class="slc-tipo" name="cond" id="slcTipo">
+                <option value="sim">Sim</option>
+                <option value="nao">Nao</option>
+            </select>
             <br>
-            <label>Carroceria:</label>
-            <input type="text" id="ipt_cor" name="carroc" value="<?php echo $row["carroceria"] ?>">
+            <label>Tamanho em M² :</label>
+            <input type="text" id="iptM" name="tam" value="<?php echo $row["tamanho"] ?> ">
+            <input type="hidden" name="idImovel" value="<?php echo $row["id"] ?>">
             <br>
-            <label>Combustivel:</label>
-            <input type="text" id="ipt_cor" name="combu" value="<?php echo $row["combustivel"] ?>">
+            <label>Quartos:</label>
+            <input type="text" id="ipt_cor" name="quart"  value="<?php echo $row["quartos"] ?> ">
             <br>
-</div>
-<div class="cont-ven">
-            <label>Final da Placa:</label>
-            <input type="text" id="ipt_cor" name="finpla" value="<?php echo $row["finalplaca"] ?>">
+            <label>Banheiros:</label>
+            <input type="text" id="ipt_cor" name="ban"  value="<?php echo $row["banheiros"] ?> ">
             <br>
-            <label>Troca:</label>
-            <input type="text" id="ipt_cor" name="troc" value="<?php echo $row["troca"] ?>">
+            <label>Vagas:</label>
+            <input type="text" id="ipt_cor" name="vagas"  value="<?php echo $row["vagas"] ?> ">
             <br>
-            <label>Km:</label>
-            <input type="text" id="ipt_cor" name="km" value="<?php echo $row["km"] ?>">
+            <label>Perto de Transporte Publico:</label>
+            <input type="text" id="ipt_cor" name="tpubli" value="<?php echo $row["trans_publi"] ?> ">
             <br>
-            <label>Preço:</label>
-            <input type="text" id="ipt_cor" name="preco" value="<?php echo $row["preco"] ?>">
+            <label>Mobilia:</label>
+            <input type="text" id="ipt_cor" name="mob" value="<?php echo $row["mobilia"] ?> ">
             <br>
-            <label>Especificações:</label>
-            <input type="text" id="ipt_cor" name="espec" value="<?php echo $row["especificações"] ?>">
+            <label>Andar:</label>
+            <input type="text" id="ipt_cor" name="and"  value="<?php echo $row["andar"] ?> ">
             <br>
-            <label>Descrição:</label>
-            
-            <input type="text" id="ipt_cor" cols="30" rows="10" name="descr" value="<?php echo $row["descricao"] ?>"></textarea>
                 </div>
+                <div class="cont-ven">
+            <label>Logradouro:</label>
+            <input type="text" id="ipt_cor" name="lograd" value="<?php echo $row["endereçoImovel"] ?> ">
+            <br>
+            <label>Bairro:</label>
+            <input type="text" id="ipt_cor" name="bairro" value="<?php echo $row["bairroImovel"] ?> ">
+            <br>
+            <label>Estado:</label>
+            <input type="text" id="ipt_cor" name="estado" value="<?php echo $row["estadoImovel"] ?> ">
+            <br>
+            <label>CEP:</label>
+            <input type="text" id="ipt_cor" name="cep" value="<?php echo $row["cepImovel"] ?> ">
+            <br>
+            <label>Cidade:</label>
+            <input type="text" id="ipt_cor" name="cidade" value="<?php echo $row["cidadeImovel"] ?> ">
+            <br>
+            <label>Preco:</label>
+            <input type="text" id="ipt_cor" name="preco" value="<?php echo $row["preco"] ?> ">
+            <br>
+            </div>
                 <div class="image-ven">
                     <h4>Selecione a(s) imagem(s) para o anuncio</h1>
                     <label for="fileInput" class="custom-file-upload">
@@ -216,10 +236,7 @@ if ($result->num_rows > 0) {
             </div>
         </div>
     </div>
-
-    <?php }
-                }                                                              ?>
-
+<?php }} ?>w
     <script>
         function mostrarOpcaoEspecifica() {
             var selectMarcas = document.getElementById("marcas");
@@ -279,5 +296,82 @@ if ($result->num_rows > 0) {
 </body>
 </html>
 
+<?php
 
+$conexao=mysqli_connect("localhost", "root", "Sk8long2077#", "getninjas");
+if(!$conexao){
+    echo "erro-bd";
+    exit;
+}
 
+if (isset($_POST['tipo'])) {
+
+    $tipo = $_POST['tipo'];
+    $condominio = $_POST['cond'];
+    $km = $_POST['tam'];
+    $quartos = $_POST['quart'];
+    $banheiro = $_POST['ban'];
+    $vagas = $_POST['vagas'];
+    $TPubli = $_POST['tpubli'];
+    $mobilia = $_POST['mob'];
+    $andar = $_POST['and'];
+    $lograd = $_POST['lograd'];
+    $bairro = $_POST['bairro'];
+    $estado = $_POST['estado'];
+    $cep = $_POST['cep'];
+    $city = $_POST['cidade'];
+    $preco = $_POST['preco'];
+    require('conecta.php');
+
+    $gravar = "INSERT INTO imovel (tipo, condominio, tamanho, quartos, banheiros, vagas, trans_publi, mobilia, andar, endereçoImovel, bairroImovel, estadoImovel, cepImovel, cidadeImovel, preco)
+    VALUE 
+    ('$tipo','$condominio','$km','$quartos','$banheiro','$vagas','$TPubli','$mobilia','$andar','$lograd','$bairro','$estado','$cep','$city','$preco') ";
+    $resultado = mysqli_query($conexao, $gravar);
+    if ($resultado == false) {
+        echo 
+        "<script> window.alert('Problemas ao Inserir.');
+        window.location.href='inserirImovel.html'
+        </script>";
+    } else {
+        echo 
+        "<script> window.alert('Inserido com sucesso.');
+        window.location.href='inserirImovel.html'
+        </script>";
+    }
+
+    $diretorio = "images/$usuario_id/";
+
+    // Criar o diretório
+    mkdir($diretorio, 0755);
+
+    // Receber os arquivos do formulário
+    $arquivo = $_FILES['imagens'];
+    //var_dump($arquivo);
+
+    // Ler o array de arquivos
+    for ($cont = 0; $cont < count($arquivo['name']); $cont++) {
+
+        // Receber nome da imagem
+        $nome_arquivo = $arquivo['name'][$cont];
+
+        // Criar o endereço de destino das imagens
+        $destino = $diretorio . $arquivo['name'][$cont];
+
+        // Acessa o IF quando realizar o upload corretamente
+        if (move_uploaded_file($arquivo['tmp_name'][$cont], $destino)) {
+            $query_imagem = "UPDATE INTO carro (nome_imagem VALUES (:nome_imagem) WHERE fk_vendedor LIKE = 1";
+            $cad_imagem = $conn->prepare($query_imagem);
+            $cad_imagem->bindParam(':nome_imagem', $nome_arquivo);
+
+            if ($cad_imagem->execute()) {
+                $_SESSION['msg'] = "<p style='color: green;'>Imagem cadastrado com sucesso!</p>";
+            } else {
+                $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Imagem não cadastrada com sucesso!</p>";
+            }
+        } else {
+            $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Imagem não cadastrada com sucesso!</p>";
+        }
+    }
+}
+
+?>
